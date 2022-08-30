@@ -1,5 +1,8 @@
 package entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cliente {
     Cliente(String nome, Endereco endereco, String telefone) {
         if (nome != null && !nome.isEmpty())
@@ -23,6 +26,7 @@ public class Cliente {
     private String nome;
     private Endereco endereco;
     private String telefone;
+    List<Cliente> listaClientes = new ArrayList<>();
 
     public void setNome(String novoNome) {
         if (nome != null && !novoNome.isEmpty())
@@ -71,5 +75,21 @@ public class Cliente {
 
     public void clearTelefone() {
         this.telefone = "";
+    }
+
+    public List<Cliente> buscarCliente(String nomeBusca) {
+        List<Cliente> clientesFiltrados = new ArrayList<>();
+
+        if (nomeBusca.isEmpty())
+            clientesFiltrados.addAll(this.listaClientes);
+        else {
+            for (int i = 0; i < this.listaClientes.size(); i++) {
+                Cliente cliente = this.listaClientes.get(i);
+                if (cliente.getNome().startsWith(nomeBusca))
+                    clientesFiltrados.add(cliente);
+            }
+        }
+
+        return clientesFiltrados;
     }
 }

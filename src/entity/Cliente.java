@@ -2,12 +2,16 @@ package entity;
 
 public class Cliente {
     Cliente(String nome, Endereco endereco, String telefone) {
-        if (!nome.isEmpty() && nome != null)
+        if (nome != null && !nome.isEmpty())
             this.nome = nome;
+        else
+            this.nome = "Valor não válido";
         if (endereco != null)
             this.endereco = endereco;
-        if (!telefone.isEmpty() && telefone != null)
+        if (telefone != null && !telefone.isEmpty())
             this.telefone = telefone;
+        else
+            this.telefone = "Valor não válido";
     }
 
     Cliente() {
@@ -21,15 +25,24 @@ public class Cliente {
     private String telefone;
 
     public void setNome(String novoNome) {
-        this.nome = novoNome;
+        if (nome != null && !novoNome.isEmpty())
+            this.nome = novoNome;
+        else
+            this.nome = "Valor não válido";
     }
 
     public void setEndereco(Endereco novoEndereco) {
-        this.endereco = novoEndereco;
+        if (novoEndereco == null)
+            this.endereco = new Endereco();
+        else
+            this.endereco = novoEndereco;
     }
 
     public void setTelefone(String novoTelefone) {
-        this.telefone = novoTelefone;
+        if (novoTelefone != null && novoTelefone.isEmpty())
+            this.telefone = novoTelefone;
+        else
+            this.telefone = "Valor não válido";
     }
 
     public String getNome() {

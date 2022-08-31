@@ -28,6 +28,7 @@ public class Cliente {
     private String telefone;
     List<Cliente> listaClientes = new ArrayList<>();
 
+    // Setters
     public void setNome(String novoNome) {
         if (nome != null && !novoNome.isEmpty())
             this.nome = novoNome;
@@ -49,6 +50,7 @@ public class Cliente {
             this.telefone = "Valor não válido";
     }
 
+    // Getters
     public String getNome() {
         return this.nome;
     }
@@ -61,6 +63,7 @@ public class Cliente {
         return this.telefone;
     }
 
+    // Cleaners
     public void clearNome() {
         this.nome = "";
     }

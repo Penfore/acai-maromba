@@ -1,3 +1,5 @@
+package entity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,10 +8,10 @@ public class Adicionais {
     private double preco;
     List<Adicionais> listaAdicionais = new ArrayList<>();
 
-    Adicionais(String nome, double preco){
+    Adicionais(String nome, double preco) {
         if (nome != null && !nome.isEmpty())
-            this.nome=nome;
-        else 
+            this.nome = nome;
+        else
             this.nome = "Valor não válido";
         if (preco > 0 && preco <= 200.0)
             this.preco = preco;
@@ -29,8 +31,8 @@ public class Adicionais {
     // Setters
     public void setNome(String nome) {
         if (nome != null && !nome.isEmpty())
-            this.nome=nome;
-        else 
+            this.nome = nome;
+        else
             this.nome = "Valor não válido";
     }
 
@@ -43,11 +45,11 @@ public class Adicionais {
 
     // Clear
 
-    public void limparNome(){
+    public void limparNome() {
         this.nome = "";
     }
 
-    public void limparPreco(){
+    public void limparPreco() {
         this.preco = 0.0;
     }
 
@@ -66,6 +68,5 @@ public class Adicionais {
 
         return adicionaisFiltrados;
     }
-
 
 }

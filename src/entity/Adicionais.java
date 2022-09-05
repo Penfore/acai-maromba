@@ -13,10 +13,15 @@ public class Adicionais {
             this.nome = nome;
         else
             this.nome = "Valor não válido";
-        if (preco > 0 && preco <= 200.0)
+        if (preco > 0)
             this.preco = preco;
         else
             this.preco = 200.0;
+    }
+
+    Adicionais() {
+        this.nome = "";
+        this.preco = 0;
     }
 
     // Getters
@@ -37,7 +42,7 @@ public class Adicionais {
     }
 
     public void setPreco(double preco) {
-        if (preco > 0 && preco <= 200.0)
+        if (preco > 0)
             this.preco = preco;
         else
             this.preco = 200.0;

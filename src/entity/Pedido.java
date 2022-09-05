@@ -21,10 +21,10 @@ public class Pedido {
             this.quantidade = quantidade;
         else
             this.quantidade = 300; // Duvida em como não prejudicar o serviço
-        // if (produto != produto)
-        // this.produto = produto;
-        // else
-        // this.produto = new Produto(); // empty
+        if (produto != produto)
+            this.produto = produto;
+        else
+            this.produto = new Produto(); // empty
         if (formaPagamento != null)
             this.formaPagamento = formaPagamento;
         else
@@ -35,15 +35,14 @@ public class Pedido {
         this.dataPedido = LocalDate.now();
         this.cliente = new Cliente();
         this.quantidade = 0;
-        // this.produto = new Produto();
+        this.produto = new Produto();
         this.formaPagamento = FormaPagamento.VAZIO;
     }
 
     private LocalDate dataPedido;
     private Cliente cliente;
     private int quantidade;
-    // TODO: Implementar classe Produto
-    // private Produto produto;
+    private Produto produto;
     private FormaPagamento formaPagamento;
 
     // Setters

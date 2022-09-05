@@ -1,3 +1,5 @@
+package entity;
+
 public class Produto {
     private String nome;
     private double preco;
@@ -22,7 +24,7 @@ public class Produto {
     public void setNome(String nome) {
         if (nome != null && !nome.isEmpty())
             this.nome=nome;
-        else 
+        else
             this.nome = "Valor não válido";
     }
 
@@ -36,13 +38,13 @@ public class Produto {
     public void setAdicionais(Adicionais adicionais) {
         this.adicionais = adicionais;
     }
-    
+
     // Construtor
 
     Produto(String nome, double preco, Adicionais adicionais){
         if (nome != null && !nome.isEmpty())
             this.nome=nome;
-        else 
+        else
             this.nome = "Valor não válido";
         if (preco > 0 && preco <= 200.0)
             this.preco = preco;

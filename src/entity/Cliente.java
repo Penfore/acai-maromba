@@ -5,16 +5,9 @@ import java.util.List;
 
 public class Cliente {
     Cliente(String nome, Endereco endereco, String telefone) {
-        if (nome != null && !nome.isEmpty())
-            this.nome = nome;
-        else
-            this.nome = "Valor não válido";
-        if (endereco != null)
-            this.endereco = endereco;
-        if (telefone != null && !telefone.isEmpty())
-            this.telefone = telefone;
-        else
-            this.telefone = "Valor não válido";
+        setNome(nome);
+        setEndereco(endereco);
+        setTelefone(telefone);
     }
 
     Cliente() {
@@ -38,7 +31,7 @@ public class Cliente {
 
     public void setEndereco(Endereco novoEndereco) {
         if (novoEndereco == null)
-            this.endereco = new Endereco();
+            this.endereco = new Endereco(); // Empty
         else
             this.endereco = novoEndereco;
     }

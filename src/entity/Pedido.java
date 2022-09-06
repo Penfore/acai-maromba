@@ -7,28 +7,13 @@ public class Pedido {
             LocalDate dataPedido,
             Cliente cliente,
             int quantidade,
-            // Produto produto
+            Produto produto,
             FormaPagamento formaPagamento) {
-        if (dataPedido != null)
-            this.dataPedido = dataPedido;
-        else
-            this.dataPedido = LocalDate.now();
-        if (cliente != null)
-            this.cliente = cliente;
-        else
-            this.cliente = new Cliente(); // empty
-        if (quantidade > 0)
-            this.quantidade = quantidade;
-        else
-            this.quantidade = 300; // Duvida em como não prejudicar o serviço
-        if (produto != produto)
-            this.produto = produto;
-        else
-            this.produto = new Produto(); // empty
-        if (formaPagamento != null)
-            this.formaPagamento = formaPagamento;
-        else
-            this.formaPagamento = FormaPagamento.VAZIO;
+        setDataPedido(dataPedido);
+        setCliente(cliente);
+        setQuantidade(quantidade);
+        setProduto(produto);
+        setFormaPagamento(formaPagamento);
     }
 
     Pedido() {
@@ -65,6 +50,13 @@ public class Pedido {
             this.quantidade = novaQuantidade;
         else
             this.quantidade = 300;
+    }
+
+    public void setProduto(Produto novoProduto) {
+        if (novoProduto != null)
+            this.produto = novoProduto;
+        else
+            this.produto = new Produto(); // empty
     }
 
     public void setFormaPagamento(FormaPagamento formaPagamento) {

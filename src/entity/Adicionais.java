@@ -9,14 +9,8 @@ public class Adicionais {
     List<Adicionais> listaAdicionais = new ArrayList<>();
 
     Adicionais(String nome, double preco) {
-        if (nome != null && !nome.isEmpty())
-            this.nome = nome;
-        else
-            this.nome = "Valor não válido";
-        if (preco > 0)
-            this.preco = preco;
-        else
-            this.preco = 200.0;
+        setNome(nome);
+        setPreco(preco);
     }
 
     Adicionais() {

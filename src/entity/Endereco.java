@@ -2,26 +2,11 @@ package entity;
 
 public class Endereco {
     Endereco(String pais, String estado, String cidade, String logradouro, String numero) {
-        if (!pais.isEmpty() && pais != null)
-            this.pais = pais;
-        else
-            this.pais = "Valor não válido";
-        if (!estado.isEmpty() && estado != null)
-            this.estado = estado;
-        else
-            this.estado = "Valor não válido";
-        if (!cidade.isEmpty() && cidade != null)
-            this.cidade = cidade;
-        else
-            this.cidade = "Valor não válido";
-        if (!logradouro.isEmpty() && logradouro != null)
-            this.logradouro = logradouro;
-        else
-            this.logradouro = "Valor não válido";
-        if (!numero.isEmpty() && numero != null)
-            this.numero = numero;
-        else
-            this.numero = "Valor não válido";
+        setPais(pais);
+        setEstado(estado);
+        setCidade(cidade);
+        setLogradouro(logradouro);
+        setNumero(numero);
     }
 
     Endereco() {

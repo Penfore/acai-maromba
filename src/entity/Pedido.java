@@ -3,12 +3,7 @@ package entity;
 import java.time.LocalDate;
 
 public class Pedido {
-    Pedido(
-            LocalDate dataPedido,
-            Cliente cliente,
-            int quantidade,
-            Produto produto,
-            FormaPagamento formaPagamento) {
+    Pedido(LocalDate dataPedido, Cliente cliente, int quantidade, Produto produto, FormaPagamento formaPagamento) {
         setDataPedido(dataPedido);
         setCliente(cliente);
         setQuantidade(quantidade);
@@ -79,6 +74,10 @@ public class Pedido {
         return quantidade;
     }
 
+    public Produto getProduto() {
+        return produto;
+    }
+
     public FormaPagamento getFormaPagamento() {
         return formaPagamento;
     }
@@ -109,7 +108,7 @@ public class Pedido {
         return new Pedido();
     }
 
-    public Pedido buscarPedidoProduto(/* Produto produto */) {
+    public Pedido buscarPedidoProduto(Produto produto) {
         return new Pedido();
     }
 }

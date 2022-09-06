@@ -4,11 +4,11 @@ public class Produto {
 
     private String nome;
     private double preco;
-    private Adicionais adicionais;
+    private Adicional adicionais;
 
     // Getters
 
-    public Adicionais getAdicionais() {
+    public Adicional getAdicionais() {
         return adicionais;
     }
 
@@ -36,14 +36,14 @@ public class Produto {
             this.preco = 2000.0;
     }
 
-    public void setAdicionais(Adicionais adicionais) {
+    public void setAdicionais(Adicional adicionais) {
         if (adicionais != null)
             this.adicionais = adicionais;
     }
 
     // Construtor
 
-    Produto(String nome, double preco, Adicionais adicionais) {
+    Produto(String nome, double preco, Adicional adicionais) {
         if (nome != null && !nome.isEmpty())
             this.nome = nome;
         else
@@ -57,7 +57,7 @@ public class Produto {
     Produto() {
         this.nome = "";
         this.preco = 0;
-        this.adicionais = Adicionais();
+        this.adicionais = new Adicional();
     }
 
     // Clear

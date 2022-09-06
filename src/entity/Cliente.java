@@ -73,6 +73,7 @@ public class Cliente {
         this.telefone = "";
     }
 
+    // Temporário, será trocado por um método para buscar na base de dados
     public List<Cliente> buscarCliente(String nomeBusca) {
         List<Cliente> clientesFiltrados = new ArrayList<>();
 

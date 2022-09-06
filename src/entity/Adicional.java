@@ -3,17 +3,17 @@ package entity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Adicionais {
+public class Adicional {
     private String nome;
     private double preco;
-    List<Adicionais> listaAdicionais = new ArrayList<>();
+    List<Adicional> listaAdicionais = new ArrayList<>();
 
-    Adicionais(String nome, double preco) {
+    Adicional(String nome, double preco) {
         setNome(nome);
         setPreco(preco);
     }
 
-    Adicionais() {
+    Adicional() {
         this.nome = "";
         this.preco = 0;
     }
@@ -52,14 +52,15 @@ public class Adicionais {
         this.preco = 0.0;
     }
 
-    public List<Adicionais> buscarAdicionais(String nomeAdicional) {
-        List<Adicionais> adicionaisFiltrados = new ArrayList<>();
+    // Temporário, será trocado por um método para buscar na base de dados
+    public List<Adicional> buscarAdicionais(String nomeAdicional) {
+        List<Adicional> adicionaisFiltrados = new ArrayList<>();
 
         if (nomeAdicional.isEmpty())
             adicionaisFiltrados.addAll(this.listaAdicionais);
         else {
             for (int i = 0; i < this.listaAdicionais.size(); i++) {
-                Adicionais adicional = this.listaAdicionais.get(i);
+                Adicional adicional = this.listaAdicionais.get(i);
                 if (adicional.getNome().startsWith(nomeAdicional))
                     adicionaisFiltrados.add(adicional);
             }

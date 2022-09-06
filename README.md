@@ -2,7 +2,7 @@
 
 # 🔧Início
 
-O projeto *WsGear* surgiu na UFERSA durante a máteria de *POO*  no curso de Ciencia da Computação ministrada pelo professor <a href="https://www.youtube.com/channel/UCoaNRW6MKBTAisVRPX7JmQg">Paulo Gadelha</a>.
+O projeto *Açaí Maromba* surgiu na UFERSA durante a máteria de *POO*  no curso de Ciencia da Computação ministrada pelo professor <a href="https://www.youtube.com/channel/UCoaNRW6MKBTAisVRPX7JmQg">Paulo Gadelha</a>.
 
 # 💡Contexto
 

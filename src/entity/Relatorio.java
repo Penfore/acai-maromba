@@ -5,6 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Relatorio {
+
+    Relatorio(List<Pedido> pedidos, LocalDate dataInicial, LocalDate dataFinal) {
+        for (int i = 0; i <= (pedidos.size() - 1); i++) {
+            gerarRelatorio(dataInicial, dataFinal, pedidos.get(i));
+        }
+    }
+
     private List<Pedido> pedidos = new ArrayList<>();
 
     public List<Pedido> getPedidos() {

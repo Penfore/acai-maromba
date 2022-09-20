@@ -1,4 +1,4 @@
-package entity;
+package entities;
 
 public class Endereco {
     Endereco(String pais, String estado, String cidade, String logradouro, String numero) {

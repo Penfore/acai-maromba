@@ -1,4 +1,4 @@
-package entity;
+package entities;
 
 import java.time.LocalDate;
 
@@ -11,7 +11,7 @@ public class Pedido {
         setFormaPagamento(formaPagamento);
     }
 
-    Pedido() {
+    public Pedido() {
         this.dataPedido = LocalDate.now();
         this.cliente = new Cliente();
         this.quantidade = 0;
@@ -99,16 +99,4 @@ public class Pedido {
         this.formaPagamento = FormaPagamento.VAZIO;
     }
 
-    // Buscadores // TODO: Implementar buscadores
-    public Pedido buscarPedidoData(LocalDate dataBusca) {
-        return new Pedido();
-    }
-
-    public Pedido buscarPedidoCliente(Cliente cliente) {
-        return new Pedido();
-    }
-
-    public Pedido buscarPedidoProduto(Produto produto) {
-        return new Pedido();
-    }
 }

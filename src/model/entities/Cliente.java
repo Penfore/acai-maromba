@@ -1,7 +1,4 @@
-package entity;
-
-import java.util.ArrayList;
-import java.util.List;
+package entities;
 
 public class Cliente {
     Cliente(String nome, Endereco endereco, String telefone) {
@@ -19,7 +16,6 @@ public class Cliente {
     private String nome;
     private Endereco endereco;
     private String telefone;
-    List<Cliente> listaClientes = new ArrayList<>();
 
     // Setters
     public void setNome(String novoNome) {
@@ -73,20 +69,4 @@ public class Cliente {
         this.telefone = "";
     }
 
-    // Temporário, será trocado por um método para buscar na base de dados
-    public List<Cliente> buscarCliente(String nomeBusca) {
-        List<Cliente> clientesFiltrados = new ArrayList<>();
-
-        if (nomeBusca.isEmpty())
-            clientesFiltrados.addAll(this.listaClientes);
-        else {
-            for (int i = 0; i < this.listaClientes.size(); i++) {
-                Cliente cliente = this.listaClientes.get(i);
-                if (cliente.getNome().startsWith(nomeBusca))
-                    clientesFiltrados.add(cliente);
-            }
-        }
-
-        return clientesFiltrados;
-    }
 }

@@ -1,13 +1,13 @@
 package entities;
 
 public class Cliente {
-    Cliente(String nome, Endereco endereco, String telefone) {
+    public Cliente(String nome, Endereco endereco, String telefone) {
         setNome(nome);
         setEndereco(endereco);
         setTelefone(telefone);
     }
 
-    Cliente() {
+    public Cliente() {
         this.nome = "";
         this.endereco = new Endereco();
         this.telefone = "";

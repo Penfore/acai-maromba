@@ -1,7 +1,7 @@
 package entities;
 
 public class Endereco {
-    Endereco(String pais, String estado, String cidade, String logradouro, String numero) {
+    public Endereco(String pais, String estado, String cidade, String logradouro, String numero) {
         setPais(pais);
         setEstado(estado);
         setCidade(cidade);
@@ -9,7 +9,7 @@ public class Endereco {
         setNumero(numero);
     }
 
-    Endereco() {
+    public Endereco() {
         this.pais = "";
         this.estado = "";
         this.cidade = "";

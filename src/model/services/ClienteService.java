@@ -3,6 +3,7 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
+import dao.ClienteDao;
 import entities.Cliente;
 
 public class ClienteService {
@@ -24,4 +25,19 @@ public class ClienteService {
 
         return clientesFiltrados;
     }
+
+    ClienteDao clienteDao = new ClienteDao();
+
+    // TODO: Não vi na aula isso tudo :V
+    // public boolean adicionar(Cliente clinete) {
+    // ClienteDao clienteDao =
+    // }
+
+    // public List<Cliente> listar() {
+    // List<Cliente>
+    // }
+
+    // public boolean atualizar(Cliente cliente) {
+    // if (clienteDao.buscar(cliente))
+    // }
 }

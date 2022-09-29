@@ -11,7 +11,7 @@ public class JDBCExemplo {
 
         String sql = "insert into contatos " +
                 "(nome,email,endereco,dataNascimento)" +
-                "values (?,?,?,?)";
+                "values (?,?,?,?);";
 
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, "Fulvio Leo");

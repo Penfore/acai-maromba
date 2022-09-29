@@ -24,35 +24,35 @@ public class Endereco {
     private String numero;
 
     public void setPais(String novoPais) {
-        if (!pais.isEmpty() && pais != null)
+        if (pais != null && !pais.isEmpty())
             this.pais = novoPais;
         else
             this.pais = "Valor não válido";
     }
 
     public void setEstado(String novoEstado) {
-        if (!estado.isEmpty() && estado != null)
+        if (estado != null && !estado.isEmpty())
             this.estado = novoEstado;
         else
             this.estado = "Valor não válido";
     }
 
     public void setCidade(String novaCidade) {
-        if (!cidade.isEmpty() && cidade != null)
+        if (cidade != null && !cidade.isEmpty())
             this.cidade = novaCidade;
         else
             this.cidade = "Valor não válido";
     }
 
     public void setLogradouro(String novoLogradouro) {
-        if (!logradouro.isEmpty() && logradouro != null)
+        if (logradouro != null && !logradouro.isEmpty())
             this.logradouro = novoLogradouro;
         else
             this.logradouro = "Valor não válido";
     }
 
     public void setNumero(String novoNumero) {
-        if (!numero.isEmpty() && numero != null)
+        if (numero != null && !numero.isEmpty())
             this.numero = novoNumero;
         else
             this.numero = "Valor não válido";

@@ -1,43 +1,37 @@
 package services;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import dao.ClienteDao;
 import entities.Cliente;
 
 public class ClienteService {
-    List<Cliente> listaClientes = new ArrayList<>();
+    static ClienteDao dao = new ClienteDao();
 
-    // Temporário, será trocado por um método para buscar na base de dados
-    public List<Cliente> buscarCliente(String nomeBusca) {
-        List<Cliente> clientesFiltrados = new ArrayList<>();
-
-        if (nomeBusca.isEmpty())
-            clientesFiltrados.addAll(this.listaClientes);
-        else {
-            for (int i = 0; i < this.listaClientes.size(); i++) {
-                Cliente cliente = this.listaClientes.get(i);
-                if (cliente.getNome().startsWith(nomeBusca))
-                    clientesFiltrados.add(cliente);
-            }
-        }
-
-        return clientesFiltrados;
+    public static Cliente buscar(Cliente cliente) {
+        Cliente clienteBuscado = dao.buscar(cliente);
+        if (clienteBuscado != null) {
+            return clienteBuscado;
+        } else
+            return null;
     }
 
-    ClienteDao clienteDao = new ClienteDao();
+    public static boolean adicionar(Cliente cliente) {
+        if (dao.buscar(cliente) == null) {
+            return dao.adicionar(cliente);
+        } else
+            return false;
+    }
 
-    // TODO: Não vi na aula isso tudo :V
-    // public boolean adicionar(Cliente clinete) {
-    // ClienteDao clienteDao =
-    // }
+    public static boolean alterar(Cliente cliente) {
+        if (dao.buscar(cliente) != null) {
+            return dao.alterar(cliente);
+        } else
+            return false;
+    }
 
-    // public List<Cliente> listar() {
-    // List<Cliente>
-    // }
-
-    // public boolean atualizar(Cliente cliente) {
-    // if (clienteDao.buscar(cliente))
-    // }
+    public static boolean deletar(Cliente cliente) {
+        if (dao.buscar(cliente) != null) {
+            return dao.deletar(cliente);
+        } else
+            return false;
+    }
 }

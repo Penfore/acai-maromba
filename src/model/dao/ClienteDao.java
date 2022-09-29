@@ -5,20 +5,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import entities.Cliente;
-import entities.Endereco;
 
 public class ClienteDao extends ConnectionFactory {
 
-    public boolean inserir(Cliente cliente) {
-        String sql = "INSERT INTO tb_cliente nome, endereco, telefone VALUES(?, ?, ?);";
+    public boolean adicionar(Cliente cliente) {
+        String sql = "INSERT INTO cliente" +
+                "(nome, telefone, endereco_pais, endereco_estado, endereco_cidade, endereco_logradouro, endereco_numero) "
+                +
+                "VALUES(?, ?, ?, ?, ?, ?, ?);";
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
             preparedStatement.setString(1, cliente.getNome());
-            // TODO: Ver como adicionar os dados da classe Endereco. Provavelmente precisa
-            // de mais sets
-            preparedStatement.setString(2, cliente.getEndereco().toString());
-            preparedStatement.setString(3, cliente.getTelefone());
+            preparedStatement.setString(2, cliente.getTelefone());
+            preparedStatement.setString(3, cliente.getEndereco().getPais());
+            preparedStatement.setString(4, cliente.getEndereco().getEstado());
+            preparedStatement.setString(5, cliente.getEndereco().getCidade());
+            preparedStatement.setString(6, cliente.getEndereco().getLogradouro());
+            preparedStatement.setString(7, cliente.getEndereco().getNumero());
             preparedStatement.execute();
 
             return true;
@@ -30,7 +34,7 @@ public class ClienteDao extends ConnectionFactory {
     }
 
     public Cliente buscar(Cliente cliente) {
-        String sql = "SELECT * FROM tb_cliente WHERE nome=? ;";
+        String sql = "SELECT * FROM cliente WHERE nome=? ;";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
             preparedStatement.setString(1, cliente.getNome());
@@ -46,16 +50,18 @@ public class ClienteDao extends ConnectionFactory {
     }
 
     public boolean alterar(Cliente cliente) {
-        String sql = "UPDATE tb_cliente SET nome=?, endereco=?, telefone=? WHERE nome=? ;";
+        String sql = "UPDATE cliente " +
+                "SET nome=?, telefone=?, endereco_pais=?, endereco_estado=?, endereco_cidade=?, endereco_logradouro=?, endereco_numero=? ;";
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
             preparedStatement.setString(1, cliente.getNome());
-            // TODO: Ver como adicionar os dados da classe Endereco. Provavelmente precisa
-            // de mais sets
-            preparedStatement.setString(2, cliente.getEndereco().toString());
-            preparedStatement.setString(3, cliente.getTelefone());
-            preparedStatement.setString(4, cliente.getNome());
+            preparedStatement.setString(2, cliente.getTelefone());
+            preparedStatement.setString(3, cliente.getEndereco().getPais());
+            preparedStatement.setString(4, cliente.getEndereco().getEstado());
+            preparedStatement.setString(5, cliente.getEndereco().getCidade());
+            preparedStatement.setString(6, cliente.getEndereco().getLogradouro());
+            preparedStatement.setString(7, cliente.getEndereco().getNumero());
             preparedStatement.executeUpdate();
 
             return true;
@@ -67,7 +73,7 @@ public class ClienteDao extends ConnectionFactory {
     }
 
     public boolean deletar(Cliente cliente) {
-        String sql = "DELETE FROM tb_cliente WHERE nome=? ;";
+        String sql = "DELETE FROM cliente WHERE nome=? ;";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
             preparedStatement.setString(1, cliente.getNome());
@@ -78,18 +84,5 @@ public class ClienteDao extends ConnectionFactory {
             e.printStackTrace();
             return false;
         }
-    }
-
-    public static void main(String args[]) {
-        ClienteDao dao = new ClienteDao();
-
-        Cliente cliente = new Cliente();
-        cliente.setNome("Fulvio Leo");
-        Endereco clienteEndereco = new Endereco("Brasil", "RN", "Mossoró", "Rua da doidera", "666");
-        cliente.setEndereco(clienteEndereco);
-        cliente.setTelefone("(84) 9 8765-4321");
-
-        System.out.println(dao.inserir(cliente));
-        System.out.println(dao.buscar(cliente));
     }
 }

@@ -8,7 +8,7 @@ import entities.Adicional;
 public class AdicionalService {
     List<Adicional> listaAdicionais = new ArrayList<>();
 
-    // Temporário, será trocado por um método para buscar na base de dados
+    // TODO: Temporário, será trocado por um método para buscar na base de dados
     public List<Adicional> buscarAdicionais(String nomeAdicional) {
         List<Adicional> adicionaisFiltrados = new ArrayList<>();
 

@@ -24,6 +24,7 @@ public class Relatorio {
         this.pedidos.add(pedido);
     }
 
+    // TODO: Passar para o pacote Services
     // Irá realizar uma busca na base de dados e salvar todos os pedidos que estejam
     // entre o intervalo de tempo passado para o método na chamada
     // Por enquanto tem uma lógica simples apenas para servir de exemplo

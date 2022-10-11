@@ -1,4 +1,4 @@
-package entities;
+package model.Entities;
 
 public class Adicional {
     private String nome;
@@ -9,7 +9,7 @@ public class Adicional {
         setPreco(preco);
     }
 
-    Adicional() {
+    public Adicional() {
         this.nome = "";
         this.preco = 0;
     }

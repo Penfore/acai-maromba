@@ -1,4 +1,4 @@
-package entities;
+package model.Entities;
 
 public class Produto {
 
@@ -54,7 +54,7 @@ public class Produto {
             this.preco = 200.0;
     }
 
-    Produto() {
+    public Produto() {
         this.nome = "";
         this.preco = 0;
         this.adicionais = new Adicional();

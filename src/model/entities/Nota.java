@@ -1,11 +1,11 @@
-package entities;
+package model.Entities;
 
 public class Nota {
     Nota(Pedido pedido) {
         setPedido(pedido);
     }
 
-    Nota() {
+    public Nota() {
         this.pedido = new Pedido(); // empty
     }
 

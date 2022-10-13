@@ -5,7 +5,7 @@ import java.util.List;
 import dao.AdicionalDao;
 import entities.Adicional;
 
-public class AdicionalBO implements BaseInterBO {
+public class AdicionalBO implements BaseInterBO<Adicional> {
 	AdicionalDao dao = new AdicionalDao();
 
 	public boolean adicionar(Adicional adicional) {

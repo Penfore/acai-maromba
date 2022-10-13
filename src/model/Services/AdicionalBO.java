@@ -1,104 +1,81 @@
 package Services;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import dao.AdicionalDao;
 import entities.Adicional;
 
 public class AdicionalBO implements BaseInterBO {
-
-	Services.BaseInterBO<Adicional> dao = new AdicionalDao();
+	AdicionalDao dao = new AdicionalDao();
 
 	public boolean adicionar(Adicional adicional) {
-		ResultSet rs = dao.findBySpecifiedField(adicional, "id");
+		Adicional adicionalTeste = dao.buscar(adicional);
 		try {
-			if (rs == null || !(rs.next())) {
-				if (dao.inserir(adicional) == true)
+			if (adicionalTeste == null) {
+				if (dao.adicionar(adicional) == true)
 					return true;
 				else
 					return false;
 			} else
 				return false;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 	}
 
-	public boolean apagar(Adicional adicional) {
-		ResultSet rs = dao.findBySpecifiedField(adicional, "id");
+	public boolean deletar(Adicional adicional) {
+		Adicional adicionalTeste = dao.buscar(adicional);
 		try {
-			if (rs != null && rs.next()) {
+			if (adicionalTeste != null) {
 				if (dao.deletar(adicional) == true)
 					return true;
 				else
 					return false;
 			} else
 				return false;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 	}
 
-	public boolean atualizar(Adicional adicional) {
-
-		ResultSet rs = dao.findBySpecifiedField(adicional, "id");
+	public boolean alterar(Adicional adicional) {
+		Adicional adicionalTeste = dao.buscar(adicional);
 		try {
-			if (rs != null && rs.next()) {
+			if (adicionalTeste != null) {
 				if (dao.alterar(adicional) == true)
 					return true;
 				else
 					return false;
 			} else
 				return false;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 	}
 
-	public boolean buscar(Adicional adicional) {
-
-		ResultSet rs = dao.findBySpecifiedField(adicional, "id");
+	public Adicional buscar(Adicional adicional) {
+		Adicional adicionalTeste = dao.buscar(adicional);
 		try {
-			if (rs != null && rs.next()) {
-				if (dao.buscar(adicional) == true)
-					return true;
-				else
-					return false;
+			if (adicionalTeste != null) {
+				return adicionalTeste;
 			} else
-				return false;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+				return new Adicional(); // Classe vazia
+		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			return new Adicional(); // Classe vazia
 		}
 	}
 
 	public List<Adicional> listar() {
-		List<Adicional> adicionais = new ArrayList<Adicional>();
-		ResultSet rs = dao.findAll();
 		try {
-			while (rs.next()) {
-				Adicional adicional = new Adicional();
-				adicional.setNome(rs.getString("nome"));
-				adicional.setPreco(rs.getDouble("preco"));
-
-				adicionais.add(adicional);
-			}
+			List<Adicional> adicionais = dao.listar();
 			return adicionais;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-
 }

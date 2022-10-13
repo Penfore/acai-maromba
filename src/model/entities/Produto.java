@@ -1,14 +1,22 @@
-package model.Entities;
+package entities;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Produto {
 
     private String nome;
     private double preco;
-    private Adicional adicionais;
+    private List<Adicional> adicionais;
+    private int id;
 
     // Getters
 
-    public Adicional getAdicionais() {
+    public int getId() {
+        return this.id;
+    }
+
+    public List<Adicional> getAdicionais() {
         return adicionais;
     }
 
@@ -21,6 +29,14 @@ public class Produto {
     }
 
     // Setters
+
+    public void setId(int id) {
+        if (id >= 0) {
+            this.id = id;
+        } else {
+            System.out.println("ID invalido!");
+        }
+    }
 
     public void setNome(String nome) {
         if (nome != null && !nome.isEmpty())
@@ -36,7 +52,7 @@ public class Produto {
             this.preco = 2000.0;
     }
 
-    public void setAdicionais(Adicional adicionais) {
+    public void setAdicionais(List<Adicional> adicionais) {
         if (adicionais != null)
             this.adicionais = adicionais;
     }
@@ -57,7 +73,7 @@ public class Produto {
     public Produto() {
         this.nome = "";
         this.preco = 0;
-        this.adicionais = new Adicional();
+        this.adicionais = new ArrayList<Adicional>();
     }
 
     // Clear

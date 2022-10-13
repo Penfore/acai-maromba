@@ -1,4 +1,4 @@
-package model.Entities;
+package entities;
 
 public class Endereco {
     public Endereco(String pais, String estado, String cidade, String logradouro, String numero) {
@@ -24,35 +24,35 @@ public class Endereco {
     private String numero;
 
     public void setPais(String novoPais) {
-        if (pais != null && !pais.isEmpty())
+        if (novoPais != null && !novoPais.isEmpty())
             this.pais = novoPais;
         else
             this.pais = "Valor não válido";
     }
 
     public void setEstado(String novoEstado) {
-        if (estado != null && !estado.isEmpty())
+        if (novoEstado != null && !novoEstado.isEmpty())
             this.estado = novoEstado;
         else
             this.estado = "Valor não válido";
     }
 
     public void setCidade(String novaCidade) {
-        if (cidade != null && !cidade.isEmpty())
+        if (novaCidade != null && !novaCidade.isEmpty())
             this.cidade = novaCidade;
         else
             this.cidade = "Valor não válido";
     }
 
     public void setLogradouro(String novoLogradouro) {
-        if (logradouro != null && !logradouro.isEmpty())
+        if (novoLogradouro != null && !novoLogradouro.isEmpty())
             this.logradouro = novoLogradouro;
         else
             this.logradouro = "Valor não válido";
     }
 
     public void setNumero(String novoNumero) {
-        if (numero != null && !numero.isEmpty())
+        if (novoNumero != null && !novoNumero.isEmpty())
             this.numero = novoNumero;
         else
             this.numero = "Valor não válido";

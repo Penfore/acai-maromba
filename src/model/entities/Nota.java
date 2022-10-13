@@ -1,6 +1,9 @@
-package model.Entities;
+package entities;
 
 public class Nota {
+    private Pedido pedido;
+    private int id;
+
     Nota(Pedido pedido) {
         setPedido(pedido);
     }
@@ -8,8 +11,6 @@ public class Nota {
     public Nota() {
         this.pedido = new Pedido(); // empty
     }
-
-    private Pedido pedido;
 
     public Pedido getPedido() {
         return pedido;
@@ -22,5 +23,16 @@ public class Nota {
             this.pedido = new Pedido(); // empty
     }
 
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        if (id >= 0) {
+            this.id = id;
+        } else {
+            System.out.println("ID invalido!");
+        }
+    }
 
 }

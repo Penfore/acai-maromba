@@ -1,4 +1,4 @@
-package model.Entities;
+package entities;
 
 public class Cliente {
     public Cliente(String nome, Endereco endereco, String telefone) {
@@ -13,13 +13,22 @@ public class Cliente {
         this.telefone = "";
     }
 
+    private int id;
     private String nome;
     private Endereco endereco;
     private String telefone;
 
     // Setters
+    public void setId(int id) {
+        if (id >= 0) {
+            this.id = id;
+        } else {
+            System.out.println("ID invalido!");
+        }
+    }
+
     public void setNome(String novoNome) {
-        if (nome != null && !novoNome.isEmpty())
+        if (novoNome != null && !novoNome.isEmpty())
             this.nome = novoNome;
         else
             this.nome = "Valor não válido";
@@ -33,13 +42,17 @@ public class Cliente {
     }
 
     public void setTelefone(String novoTelefone) {
-        if (novoTelefone != null && novoTelefone.isEmpty())
+        if (novoTelefone != null && !novoTelefone.isEmpty())
             this.telefone = novoTelefone;
         else
             this.telefone = "Valor não válido";
     }
 
     // Getters
+    public int getId() {
+        return this.id;
+    }
+
     public String getNome() {
         return this.nome;
     }

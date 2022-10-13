@@ -1,8 +1,9 @@
-package model.Entities;
+package entities;
 
 public class Adicional {
     private String nome;
     private double preco;
+    private int id;
 
     Adicional(String nome, double preco) {
         setNome(nome);
@@ -23,6 +24,10 @@ public class Adicional {
         return preco;
     }
 
+    public int getId() {
+        return id;
+    }
+
     // Setters
     public void setNome(String nome) {
         if (nome != null && !nome.isEmpty())
@@ -36,6 +41,14 @@ public class Adicional {
             this.preco = preco;
         else
             this.preco = 200.0;
+    }
+
+    public void setId(int id) {
+        if (id >= 0) {
+            this.id = id;
+        } else {
+            System.out.println("ID invalido!");
+        }
     }
 
     // Clear

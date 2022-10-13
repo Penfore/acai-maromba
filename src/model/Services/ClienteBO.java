@@ -8,100 +8,81 @@ import java.util.List;
 import model.Entities.Cliente;
 import model.dao.ClienteDao;
 
-public class ClienteBO implements BaseInterBO {
+public class ClienteBO implements BaseInterBO<Cliente> {
 
 	
-	BaseInterDAO <Cliente> dao = new ClienteDao();
-	
+	ClienteDao dao = new ClienteDao();
+
 	public boolean adicionar(Cliente cliente) {
-		ResultSet rs = dao.findBySpecifiedField(cliente, "id");
+		Cliente clienteTeste = dao.buscar(cliente);
 		try {
-			if(rs==null || !(rs.next()) ) {
-				if(dao.inserir(cliente) == true)
+			if (clienteTeste == null) {
+				if (dao.adicionar(cliente) == true)
 					return true;
-					else return false;
-			}
-			else return false;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+				else
+					return false;
+			} else
+				return false;
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 	}
 
-	
-		public boolean apagar(Cliente cliente) {
-			ResultSet rs = dao.findBySpecifiedField(cliente, "id");
-			try {
-				if(rs!=null && rs.next() ) {
-					if(dao.deletar(cliente) == true)
-						return true;
-						else return false;
-				}
-				else return false;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	public boolean deletar(Cliente cliente) {
+		Cliente clienteTeste = dao.buscar(cliente);
+		try {
+			if (clienteTeste != null) {
+				if (dao.deletar(cliente) == true)
+					return true;
+				else
+					return false;
+			} else
 				return false;
-			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
+	}
 
-	
-		public boolean atualizar(Cliente cliente) {
-			
-			ResultSet rs = dao.findBySpecifiedField(cliente, "id");
-			try {
-				if(rs!=null && rs.next() ) {
-					if(dao.alterar(cliente) == true)
-						return true;
-						else return false;
-				}
-				else return false;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	public boolean alterar(Cliente cliente) {
+		Cliente clienteTeste = dao.buscar(cliente);
+		try {
+			if (clienteTeste != null) {
+				if (dao.alterar(cliente) == true)
+					return true;
+				else
+					return false;
+			} else
 				return false;
-			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
-		
-		public boolean buscar(Cliente cliente) {
-			
-			ResultSet rs = dao.findBySpecifiedField(cliente, "id");
-			try {
-				if(rs!=null && rs.next() ) {
-					if(dao.buscar(cliente) == true)
-						return true;
-						else return false;
-				}
-				else return false;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			}	
-		}
-	    
+	}
 
-	
-		public List<Cliente> listar(){
-			List<Cliente> clientes = new ArrayList<Cliente>();
-			ResultSet rs = dao.findAll();
-			try {
-				while(rs.next()) {
-					Cliente cliente = new Cliente();
-					cliente.setNome(rs.getString("nome"));
-					cliente.setEndereco(rs.getString("endereco"));
-					cliente.setTelefone(rs.getString("telefone"));
-					
-					clientes.add(cliente);
-				}
-				return clientes;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return null;
-			}
+	public Cliente buscar(Cliente cliente) {
+		Cliente clienteTeste = dao.buscar(cliente);
+		try {
+			if (clienteTeste != null) {
+				return clienteTeste;
+			} else
+				return new Cliente(); // Classe vazia
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Cliente(); // Classe vazia
 		}
+	}
+
+	public List<Cliente> listar() {
+		try {
+			List<Cliente> clientes = dao.listar();
+			return clientes;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
     
 	
 }

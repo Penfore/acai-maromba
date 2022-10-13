@@ -1,9 +1,9 @@
-package Services;
+package model.Services;
 
 import java.util.List;
 
-import dao.AdicionalDao;
-import entities.Adicional;
+import model.dao.AdicionalDao;
+import model.Entities.Adicional;
 
 public class AdicionalBO implements BaseInterBO<Adicional> {
 	AdicionalDao dao = new AdicionalDao();

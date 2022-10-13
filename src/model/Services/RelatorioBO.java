@@ -2,80 +2,84 @@ package model.Services;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import model.Entities.Relatorio;
 import model.dao.RelatorioDao;
 
-public class RelatorioBO implements BaseInterBO {
+public class RelatorioBO implements BaseInterBO<Relatorio> {
     
-	BaseInterDAO <Relatorio> dao = new RelatorioDao();
-	
+	RelatorioDao dao = new RelatorioDao();
+
 	public boolean adicionar(Relatorio relatorio) {
-		ResultSet rs = dao.findBySpecifiedField(relatorio, "id");
+		Relatorio relatorioTeste = dao.buscar(relatorio);
 		try {
-			if(rs==null || !(rs.next()) ) {
-				if(dao.inserir(relatorio) == true)
+			if (relatorioTeste == null) {
+				if (dao.adicionar(relatorio) == true)
 					return true;
-					else return false;
-			}
-			else return false;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+				else
+					return false;
+			} else
+				return false;
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 	}
 
-	
-		public boolean apagar (Relatorio relatorio) {
-			ResultSet rs = dao.findBySpecifiedField(relatorio, "id");
-			try {
-				if(rs!=null && rs.next() ) {
-					if(dao.deletar(relatorio) == true)
-						return true;
-						else return false;
-				}
-				else return false;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	public boolean deletar(Relatorio relatorio) {
+		Relatorio relatorioTeste = dao.buscar(relatorio);
+		try {
+			if (relatorioTeste != null) {
+				if (dao.deletar(relatorio) == true)
+					return true;
+				else
+					return false;
+			} else
 				return false;
-			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
+	}
 
-	
-		public boolean atualizar (Relatorio relatorio) {
-			
-			ResultSet rs = dao.findBySpecifiedField(relatorio, "id");
-			try {
-				if(rs!=null && rs.next() ) {
-					if(dao.alterar(relatorio) == true)
-						return true;
-						else return false;
-				}
-				else return false;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	public boolean alterar(Relatorio relatorio) {
+		Relatorio relatorioTeste = dao.buscar(relatorio);
+		try {
+			if (relatorioTeste != null) {
+				if (dao.alterar(relatorio) == true)
+					return true;
+				else
+					return false;
+			} else
 				return false;
-			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
-		
-		public boolean buscar (Relatorio relatorio) {
-			
-			ResultSet rs = dao.findBySpecifiedField(relatorio, "id");
-			try {
-				if(rs!=null && rs.next() ) {
-					if(dao.buscar(relatorio) == true)
-						return true;
-						else return false;
-				}
-				else return false;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			}	
+	}
+
+	public Relatorio buscar(Relatorio relatorio) {
+		Relatorio relatorioTeste = dao.buscar(relatorio);
+		try {
+			if (relatorioTeste != null) {
+				return relatorioTeste;
+			} else
+				return new Relatorio(); // Classe vazia
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Relatorio(); // Classe vazia
 		}
+	}
+
+	public List<Relatorio> listar() {
+		try {
+			List<Relatorio> relatorios = dao.listar();
+			return relatorios;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 	
 }

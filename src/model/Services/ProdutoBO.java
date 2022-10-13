@@ -8,99 +8,80 @@ import java.util.List;
 import model.Entities.Produto;
 import model.dao.ProdutoDao;
 
-public class ProdutoBO implements BaseInterBO {
+public class ProdutoBO implements BaseInterBO<Produto> {
 
 	
-	BaseInterDAO <Produto> dao = new ProdutoDao();
-	
+	ProdutoDao dao = new ProdutoDao();
+
 	public boolean adicionar(Produto produto) {
-		ResultSet rs = dao.findBySpecifiedField(produto, "id");
+		Produto produtoTeste = dao.buscar(produto);
 		try {
-			if(rs==null || !(rs.next()) ) {
-				if(dao.inserir(produto) == true)
+			if (produtoTeste == null) {
+				if (dao.adicionar(produto) == true)
 					return true;
-					else return false;
-			}
-			else return false;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+				else
+					return false;
+			} else
+				return false;
+		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
-		}	
+		}
 	}
-	
-		public boolean apagar (Produto produto) {
-			ResultSet rs = dao.findBySpecifiedField(produto, "id");
-			try {
-				if(rs!=null && rs.next() ) {
-					if(dao.deletar(produto) == true)
-						return true;
-						else return false;
-				}
-				else return false;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return false;
-			}	
-		}
 
-	
-		public boolean atualizar (Produto produto) {
-			
-			ResultSet rs = dao.findBySpecifiedField(produto, "id");
-			try {
-				if(rs!=null && rs.next() ) {
-					if(dao.alterar(produto) == true)
-						return true;
-						else return false;
-				}
-				else return false;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	public boolean deletar(Produto produto) {
+		Produto produtoTeste = dao.buscar(produto);
+		try {
+			if (produtoTeste != null) {
+				if (dao.deletar(produto) == true)
+					return true;
+				else
+					return false;
+			} else
 				return false;
-			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
+	}
 
-	
-		public boolean buscar (Produto produto) {
-			
-			ResultSet rs = dao.findBySpecifiedField(produto, "id");
-			try {
-				if(rs!=null && rs.next() ) {
-					if(dao.buscar(produto) == true)
-						return true;
-						else return false;
-				}
-				else return false;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	public boolean alterar(Produto produto) {
+		Produto produtoTeste = dao.buscar(produto);
+		try {
+			if (produtoTeste != null) {
+				if (dao.alterar(produto) == true)
+					return true;
+				else
+					return false;
+			} else
 				return false;
-			}	
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
 		}
-	    
+	}
 
-	
-		public List<Produto> listar(){
-			List<Produto> produtos = new ArrayList<Produto>();
-			ResultSet rs = dao.findAll();
-			try {
-				while(rs.next()) {
-					Produto produto = new Produto();
-					produto.setNome(rs.getString("nome"));
-					produto.setPreco(rs.getString("preco"));
-					produto.setAdicionais(rs.getString("adicional"));
-					
-					produtos.add(produto);
-				}
-				return produtos;
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-				return null;
-			}
+	public Produto buscar(Produto produto) {
+		Produto produtoTeste = dao.buscar(produto);
+		try {
+			if (produtoTeste != null) {
+				return produtoTeste;
+			} else
+				return new Produto(); // Classe vazia
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Produto(); // Classe vazia
 		}
+	}
+
+	public List<Produto> listar() {
+		try {
+			List<Produto> produtos = dao.listar();
+			return produtos;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
     
 }

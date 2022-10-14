@@ -3,13 +3,14 @@ package entities;
 public class Adicional {
     private String nome;
     private double preco;
+    private int id;
 
     Adicional(String nome, double preco) {
         setNome(nome);
         setPreco(preco);
     }
 
-    Adicional() {
+    public Adicional() {
         this.nome = "";
         this.preco = 0;
     }
@@ -21,6 +22,10 @@ public class Adicional {
 
     public double getPreco() {
         return preco;
+    }
+
+    public int getId() {
+        return id;
     }
 
     // Setters
@@ -36,6 +41,14 @@ public class Adicional {
             this.preco = preco;
         else
             this.preco = 200.0;
+    }
+
+    public void setId(int id) {
+        if (id >= 0) {
+            this.id = id;
+        } else {
+            System.out.println("ID invalido!");
+        }
     }
 
     // Clear

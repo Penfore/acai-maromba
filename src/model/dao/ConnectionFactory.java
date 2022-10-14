@@ -5,12 +5,20 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionFactory {
+    static Connection connection = null;
+    static String url = "jdbc:mysql://localhost:3306/acai_maromba"; // /PPI
+    static String user = "root";
+    static String senha = "admin";
+
     public static Connection getConnection() {
-        try {
-            // Substitua por seu usuário e senha do MySql. Ex. "root", "123"
-            return DriverManager.getConnection("jdbc:mysql://localhost/PPI", /*usuario*/, /*senha*/);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        if (connection == null) {
+            try {
+                connection = DriverManager.getConnection(url, user, senha);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            return connection;
+        } else
+            return connection;
     }
 }

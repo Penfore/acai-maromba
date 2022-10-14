@@ -24,8 +24,17 @@ public class Pedido {
     private int quantidade;
     private Produto produto;
     private FormaPagamento formaPagamento;
+    private int id;
 
     // Setters
+    public void setId(int id) {
+        if (id >= 0) {
+            this.id = id;
+        } else {
+            System.out.println("ID invalido!");
+        }
+    }
+
     public void setDataPedido(LocalDate novaDataPedido) {
         if (dataPedido != null)
             this.dataPedido = novaDataPedido;
@@ -62,6 +71,10 @@ public class Pedido {
     }
 
     // Getters
+    public int getId() {
+        return this.id;
+    }
+
     public LocalDate getDataPedido() {
         return dataPedido;
     }

@@ -108,7 +108,7 @@ public class ClienteDao extends ConnectionFactory {
                 cliente.setTelefone(resultSet.getString("telefone"));
                 endereco.setPais("endereco_pais");
                 endereco.setEstado(resultSet.getString("endereco_estado"));
-                endereco.setCidade(resultSet.getString("endereco_estado"));
+                endereco.setCidade(resultSet.getString("endereco_cidade"));
                 endereco.setLogradouro(resultSet.getString("endereco_logradouro"));
                 endereco.setNumero(resultSet.getString("endereco_numero"));
                 cliente.setEndereco(endereco);

@@ -1,11 +1,8 @@
 package model.Services;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-import model.Entities.Pedido;
+import model.entities.Pedido;
 import model.dao.PedidoDao;
 
 public class PedidoBO implements BaseInterBO<Pedido> {

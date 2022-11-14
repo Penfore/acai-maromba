@@ -1,4 +1,4 @@
-package entities;
+package model.entities;
 
 public class Endereco {
     public Endereco(String pais, String estado, String cidade, String logradouro, String numero) {

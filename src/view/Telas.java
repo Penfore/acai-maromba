@@ -51,4 +51,47 @@ public class Telas extends Application{
 	
 }
 
+	public static void telaFuncionarios() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/telaFuncionarios.fxml"));
+			Scene scene = new Scene (root);
+			stage.setScene(scene);
+			stage.setTitle("Tela Funcionarios");
+			stage.show();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+}
+	
+	public static void telaClientes() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/telaClientes.fxml"));
+			Scene scene = new Scene (root);
+			stage.setScene(scene);
+			stage.setTitle("Tela Clientes");
+			stage.show();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+}
+	
+	public static void telaPedidos() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/telaPedidos.fxml"));
+			Scene scene = new Scene (root);
+			stage.setScene(scene);
+			stage.setTitle("Tela Pedidos");
+			stage.show();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+}
+	
+	
 }

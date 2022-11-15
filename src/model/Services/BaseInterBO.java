@@ -2,8 +2,6 @@ package model.Services;
 
 import java.util.List;
 
-import api.dto.pedidoDTO;
-
 public interface BaseInterBO<entity> {
 	public boolean adicionar(entity e);
 
@@ -13,5 +11,5 @@ public interface BaseInterBO<entity> {
 
 	public entity buscar(entity e);
 
-	public List<pedidoDTO> listar();
+	public List<entity> listar();
 }

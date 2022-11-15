@@ -1,8 +1,8 @@
 package api.controllers;
 
-public class clienteController {
+public class pedidoController {
 	
-	public void adicionarCliente() {
+	public void adicionarPedido() {
 		
 	}
 	

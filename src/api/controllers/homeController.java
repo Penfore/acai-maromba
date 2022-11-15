@@ -29,5 +29,8 @@ public class homeController  {
 		
 	}
 	
+	public void listar() {
+		
+	}
 	
 }

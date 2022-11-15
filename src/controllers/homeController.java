@@ -1,15 +1,13 @@
-package api.controllers;
+package controllers;
 
 import view.Telas;
 
-public class homeController  {
+public class homeController {
 
-	
-	
 	public void paraPedidos() {
 		Telas.telaPedidos();
 	}
-	
+
 	public void paraClientes() {
 		Telas.telaClientes();
 	}
@@ -25,13 +23,13 @@ public class homeController  {
 	public void paraFuncionarios() {
 		Telas.telaFuncionarios();
 	}
-	
+
 	public void paraSair() {
 		Telas.telaLogin();
 	}
-	
+
 	public void listar() {
-		
+
 	}
-	
+
 }

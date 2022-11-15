@@ -1,5 +1,7 @@
 package api.controllers;
 
+import view.Telas;
+
 public class funcionarioController {
 	
 	public void listar() {
@@ -10,8 +12,16 @@ public class funcionarioController {
 		
 	}
 	
-	public void voltar() {
+	public void deletar() {
 		
+	}
+	
+	public void alterar() {
+		
+	}
+	
+	public void voltar() {
+		Telas.telaHome();
 	}
 
 }

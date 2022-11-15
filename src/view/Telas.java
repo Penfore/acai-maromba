@@ -93,5 +93,33 @@ public class Telas extends Application{
 	
 }
 	
+	public static void telaProdutos() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/telaProdutos.fxml"));
+			Scene scene = new Scene (root);
+			stage.setScene(scene);
+			stage.setTitle("Tela Produtos");
+			stage.show();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+}
+	
+	public static void telaRelatorios() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/telaRelatorios.fxml"));
+			Scene scene = new Scene (root);
+			stage.setScene(scene);
+			stage.setTitle("Tela Relatorios");
+			stage.show();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+}
+	
 	
 }

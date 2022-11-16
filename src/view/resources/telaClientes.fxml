@@ -15,7 +15,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TableView layoutX="285.0" layoutY="77.0" onSort="#listar" prefHeight="229.0" prefWidth="301.0">
+      <TableView fx:id="listarTable" layoutX="285.0" layoutY="77.0" onSort="#listar" prefHeight="229.0" prefWidth="301.0">
         <columns>
           <TableColumn minWidth="100.0" prefWidth="75.0" text="Nome" />
           <TableColumn minWidth="100.0" prefWidth="75.0" text="Endereco" />
@@ -27,7 +27,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="515.0" layoutY="343.0" mnemonicParsing="false" onAction="#adicionarCliente" text="Adicionar">
+      <Button fx:id="adicionarClienteButton" layoutX="515.0" layoutY="343.0" mnemonicParsing="false" onAction="#adicionarCliente" text="Adicionar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

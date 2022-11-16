@@ -1,4 +1,4 @@
-package dao;
+package model.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,9 +7,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import entities.Cliente;
-import entities.Pedido;
-import entities.Produto;
+import model.entities.Cliente;
+import model.entities.Pedido;
+import model.entities.Produto;
 
 public class PedidoDao extends ConnectionFactory {
     public boolean adicionar(Pedido pedido) {

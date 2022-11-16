@@ -1,11 +1,8 @@
 package model.Services;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-import model.Entities.Nota;
+import model.entities.Nota;
 import model.dao.NotaDao;
 
 public class NotaBO implements BaseInterBO<Nota> {

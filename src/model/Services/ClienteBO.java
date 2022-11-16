@@ -1,11 +1,8 @@
 package model.Services;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-import model.Entities.Cliente;
+import model.entities.Cliente;
 import model.dao.ClienteDao;
 
 public class ClienteBO implements BaseInterBO<Cliente> {

@@ -1,4 +1,4 @@
-package Services;
+package model.Services;
 
 import java.util.List;
 

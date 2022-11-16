@@ -1,4 +1,4 @@
-package entities;
+package model.entities;
 
 public enum FormaPagamento {
     CARTAO_CREDITO("cartaoCredito"),

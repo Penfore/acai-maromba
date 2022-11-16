@@ -3,7 +3,7 @@ package model.Services;
 import java.util.List;
 
 import model.dao.AdicionalDao;
-import model.Entities.Adicional;
+import model.entities.Adicional;
 
 public class AdicionalBO implements BaseInterBO<Adicional> {
 	AdicionalDao dao = new AdicionalDao();

@@ -1,4 +1,4 @@
-package dao;
+package model.dao;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,8 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import entities.Nota;
-import entities.Pedido;
+import model.entities.Nota;
+import model.entities.Pedido;
 
 public class NotaDao extends ConnectionFactory {
     public boolean adicionar(Nota nota) {

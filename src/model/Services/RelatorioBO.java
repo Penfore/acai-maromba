@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import model.Entities.Relatorio;
+import model.entities.Relatorio;
 import model.dao.RelatorioDao;
 
 public class RelatorioBO implements BaseInterBO<Relatorio> {

@@ -20,10 +20,12 @@ public class clienteController {
 	}
 
 	// TODO: Implementar o restante na view
+	@FXML
 	public void deletar() {
 
 	}
 
+	@FXML
 	public void alterar() {
 
 	}

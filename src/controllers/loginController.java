@@ -1,10 +1,10 @@
 package controllers;
 
 import view.Telas;
-// import javafx.fxml.FXML;
-// import javafx.scene.control.Button;
-// import javafx.scene.control.TextField;
-// import javafx.scene.control.PasswordField;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 
 public class loginController {
 	@FXML

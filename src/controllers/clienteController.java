@@ -1,12 +1,12 @@
 package controllers;
 
-import javax.swing.text.TableView;
+
 
 import model.entities.Cliente;
 import view.Telas;
-// import javafx.fxml.FXML;
-// import javafx.scene.control.Button;
-// import javafx.scene.control.TableView;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 
 public class clienteController {
 	@FXML

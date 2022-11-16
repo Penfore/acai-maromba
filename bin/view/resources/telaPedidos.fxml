@@ -15,7 +15,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TableView layoutX="285.0" layoutY="77.0" onSort="#listar" prefHeight="229.0" prefWidth="301.0">
+      <TableView fx:id="listarPedidoTable" layoutX="285.0" layoutY="77.0" onSort="#listar" prefHeight="229.0" prefWidth="301.0">
         <columns>
           <TableColumn minWidth="100.0" prefWidth="75.0" text="ID" />
           <TableColumn minWidth="100.0" prefWidth="75.0" text="Pedido" />
@@ -27,7 +27,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="515.0" layoutY="343.0" mnemonicParsing="false" onAction="#adicionarPedido" text="Adicionar">
+      <Button fx:id="adicionarPedidoButton" layoutX="515.0" layoutY="343.0" mnemonicParsing="false" onAction="#adicionarPedido" text="Adicionar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -62,12 +62,12 @@
       <TextField layoutX="125.0" layoutY="179.0" />
       <TextField layoutX="125.0" layoutY="218.0" />
       <TextField layoutX="125.0" layoutY="254.0" />
-      <Button layoutX="285.0" layoutY="343.0" mnemonicParsing="false" onAction="#alterar" text="Alterar">
+      <Button fx:id="alterarPedidoButton" layoutX="285.0" layoutY="343.0" mnemonicParsing="false" onAction="#alterar" text="Alterar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="407.0" layoutY="343.0" mnemonicParsing="false" onAction="#deletar" text="Deletar">
+      <Button fx:id="deletarPedidoButton" layoutX="407.0" layoutY="343.0" mnemonicParsing="false" onAction="#deletar" text="Deletar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

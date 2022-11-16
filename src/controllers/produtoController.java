@@ -1,11 +1,11 @@
 package controllers;
 
-import javax.swing.text.TableView;
+
 
 import model.entities.Produto;
-// import javafx.scene.control.TableView;
-// import javafx.fxml.FXML;
-// import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import view.Telas;
 
 public class produtoController {

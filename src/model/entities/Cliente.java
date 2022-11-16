@@ -1,29 +1,34 @@
-package entity;
-
-import java.util.ArrayList;
-import java.util.List;
+package entities;
 
 public class Cliente {
-    Cliente(String nome, Endereco endereco, String telefone) {
+    public Cliente(String nome, Endereco endereco, String telefone) {
         setNome(nome);
         setEndereco(endereco);
         setTelefone(telefone);
     }
 
-    Cliente() {
+    public Cliente() {
         this.nome = "";
         this.endereco = new Endereco();
         this.telefone = "";
     }
 
+    private int id;
     private String nome;
     private Endereco endereco;
     private String telefone;
-    List<Cliente> listaClientes = new ArrayList<>();
 
     // Setters
+    public void setId(int id) {
+        if (id >= 0) {
+            this.id = id;
+        } else {
+            System.out.println("ID invalido!");
+        }
+    }
+
     public void setNome(String novoNome) {
-        if (nome != null && !novoNome.isEmpty())
+        if (novoNome != null && !novoNome.isEmpty())
             this.nome = novoNome;
         else
             this.nome = "Valor não válido";
@@ -37,13 +42,17 @@ public class Cliente {
     }
 
     public void setTelefone(String novoTelefone) {
-        if (novoTelefone != null && novoTelefone.isEmpty())
+        if (novoTelefone != null && !novoTelefone.isEmpty())
             this.telefone = novoTelefone;
         else
             this.telefone = "Valor não válido";
     }
 
     // Getters
+    public int getId() {
+        return this.id;
+    }
+
     public String getNome() {
         return this.nome;
     }
@@ -73,20 +82,4 @@ public class Cliente {
         this.telefone = "";
     }
 
-    // Temporário, será trocado por um método para buscar na base de dados
-    public List<Cliente> buscarCliente(String nomeBusca) {
-        List<Cliente> clientesFiltrados = new ArrayList<>();
-
-        if (nomeBusca.isEmpty())
-            clientesFiltrados.addAll(this.listaClientes);
-        else {
-            for (int i = 0; i < this.listaClientes.size(); i++) {
-                Cliente cliente = this.listaClientes.get(i);
-                if (cliente.getNome().startsWith(nomeBusca))
-                    clientesFiltrados.add(cliente);
-            }
-        }
-
-        return clientesFiltrados;
-    }
 }

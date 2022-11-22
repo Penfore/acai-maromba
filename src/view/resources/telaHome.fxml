@@ -9,22 +9,22 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #C06CCE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="api.controllers.homeController">
    <children>
-      <Button layoutX="35.0" layoutY="81.0" mnemonicParsing="false" onAction="#paraPedidos" text="Pedidos">
+      <Button layoutX="35.0" layoutY="81.0" mnemonicParsing="false" onAction="#paraPedidos" prefHeight="25.0" prefWidth="88.0" text="Pedidos">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="159.0" layoutY="81.0" mnemonicParsing="false" onAction="#paraClientes" text="Clientes">
+      <Button layoutX="152.0" layoutY="81.0" mnemonicParsing="false" onAction="#paraClientes" prefHeight="25.0" prefWidth="88.0" text="Clientes">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="35.0" layoutY="161.0" mnemonicParsing="false" onAction="#paraProdutos" text="Produtos">
+      <Button layoutX="35.0" layoutY="161.0" mnemonicParsing="false" onAction="#paraProdutos" prefHeight="25.0" prefWidth="88.0" text="Produtos">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="159.0" layoutY="161.0" mnemonicParsing="false" onAction="#paraRelatorios" text="Relatorios">
+      <Button layoutX="152.0" layoutY="161.0" mnemonicParsing="false" onAction="#paraRelatorios" prefHeight="25.0" prefWidth="88.0" text="Relatorios">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -34,7 +34,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="159.0" layoutY="243.0" mnemonicParsing="false" onAction="#paraSair" text="Sair">
+      <Button layoutX="152.0" layoutY="243.0" mnemonicParsing="false" onAction="#paraSair" prefHeight="25.0" prefWidth="88.0" text="Sair">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

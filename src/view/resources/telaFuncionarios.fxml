@@ -15,11 +15,11 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="listarFuncionariosTable" layoutX="285.0" layoutY="77.0" onSort="#listar" prefHeight="229.0" prefWidth="301.0">
+      <TableView fx:id="listarFuncionarioTable" layoutX="285.0" layoutY="77.0" onSort="#listar" prefHeight="229.0" prefWidth="301.0">
         <columns>
-          <TableColumn minWidth="100.0" prefWidth="75.0" text="ID" />
-          <TableColumn minWidth="100.0" prefWidth="75.0" text="Nome" />
-            <TableColumn minWidth="100.0" prefWidth="75.0" text="Telefone" />
+          <TableColumn fx:id="columnID" minWidth="100.0" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="columnNome" minWidth="100.0" prefWidth="75.0" text="Nome" />
+            <TableColumn fx:id="columnTelefone" minWidth="100.0" prefWidth="75.0" text="Telefone" />
         </columns>
       </TableView>
       <Button layoutX="59.0" layoutY="343.0" mnemonicParsing="false" onAction="#voltar" text="Voltar">
@@ -27,7 +27,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="adicionarFuncionarioButton" layoutX="515.0" layoutY="343.0" mnemonicParsing="false" onAction="#adicionarFuncionario" text="Adicionar">
+      <Button layoutX="515.0" layoutY="343.0" mnemonicParsing="false" text="Adicionar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -50,12 +50,12 @@
       <TextField layoutX="125.0" layoutY="97.0" />
       <TextField layoutX="125.0" layoutY="138.0" />
       <TextField layoutX="125.0" layoutY="179.0" />
-      <Button fx:id="alterarFuncionarioButton" layoutX="285.0" layoutY="343.0" mnemonicParsing="false" onAction="#alterar" text="Alterar">
+      <Button layoutX="285.0" layoutY="343.0" mnemonicParsing="false" text="Alterar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="deletarFuncionarioButton" layoutX="407.0" layoutY="343.0" mnemonicParsing="false" onAction="#deletar" text="Deletar">
+      <Button layoutX="407.0" layoutY="343.0" mnemonicParsing="false" text="Deletar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

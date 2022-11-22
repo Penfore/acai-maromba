@@ -121,5 +121,18 @@ public class Telas extends Application{
 	
 }
 	
+	public static void telaCadastroClientes() {
+		try {
+			Parent root = FXMLLoader.load(Telas.class.getResource("resources/telaCadastroCliente.fxml"));
+			Scene scene = new Scene (root);
+			stage.setScene(scene);
+			stage.setTitle("Tela Cadastro Clientes");
+			stage.show();
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	
+}
 	
 }

@@ -11,6 +11,9 @@ import view.Telas;
 
 public class pedidoController {
 	
+	@FXML private TextField cliente;
+	@FXML private TextField produto;
+	@FXML private TextField adicional;
 	@FXML private TextField quantidade;
 	@FXML private TextField data;
 	@FXML private TextField formaPagamento;

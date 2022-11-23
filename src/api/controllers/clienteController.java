@@ -2,16 +2,24 @@ package api.controllers;
 
 
 
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
 import api.dto.clienteDTO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.Services.ClienteBO;
 import model.entities.Cliente;
 import view.Telas;
 
 public class clienteController {
+	
 	
 	@FXML private TextField nome;
 	@FXML private TextField telefone;
@@ -21,6 +29,8 @@ public class clienteController {
 	@FXML private TextField logradouro;
 	@FXML private TextField numero;
 		  private ClienteBO bo = new ClienteBO();
+
+		  private ObservableList<Cliente> listaDeClientes;
 	
 	@FXML
 	private TableView<Cliente> listarTable;
@@ -41,6 +51,11 @@ public class clienteController {
 		dto.setNumero(numero.getText());
 		bo.adicionar(dto);
 	}
+	
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		listar();
+	}
 
 	// TODO: Implementar o restante na view
 	@FXML
@@ -59,7 +74,11 @@ public class clienteController {
 
 	@FXML
 	public void listar() {
-
+		List<Cliente> clientes = bo.listar();
+		listaDeClientes = FXCollections.observableArrayList(clientes);
+		columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+		columnTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
+		listarTable.setItems(listaDeClientes);
 	}
 
 }

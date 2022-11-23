@@ -29,6 +29,7 @@ public class cadastroClienteController {
 		end.setCidade(cidade.getText());
 		end.setLogradouro(logradouro.getText());
 		end.setNumero(numero.getText());
+		clc.setEndereco(end);
 		dao.adicionar(clc);
 	}
 	

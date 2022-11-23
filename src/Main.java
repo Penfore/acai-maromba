@@ -1,7 +1,7 @@
-import dao.ClienteDao;
-import dao.ConnectionFactory;
-import entities.Cliente;
-import entities.Endereco;
+import model.dao.ClienteDao;
+import model.dao.ConnectionFactory;
+import model.entities.Cliente;
+import model.entities.Endereco;
 
 public class Main {
     public static void main(String args[]) {
@@ -32,9 +32,9 @@ public class Main {
 
         cliente.setEndereco(endereco);
         cliente.setTelefone("84994531843");
-        cliente.setId(10);
+        cliente.setId(10); 
 
-        clienteDao.alterar(cliente);
+        // clienteDao.alterar(cliente);
 
         // clienteDao.adicionar(cliente);
 

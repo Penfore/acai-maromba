@@ -2,6 +2,7 @@ package api.controllers;
 
 
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import api.dto.pedidoDTO;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -9,6 +10,10 @@ import model.entities.Pedido;
 import view.Telas;
 
 public class pedidoController {
+	
+	@FXML private TextField quantidade;
+	@FXML private TextField data;
+	@FXML private TextField formaPagamento;
 	
 	@FXML 
 	private TableColumn<pedidoDTO, String> columnPedido;

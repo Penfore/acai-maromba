@@ -43,12 +43,12 @@
       </Label>
       <TextField fx:id="nome" layoutX="125.0" layoutY="97.0" />
       <TextField fx:id="telefone" layoutX="125.0" layoutY="126.0" />
-      <Button layoutX="285.0" layoutY="343.0" mnemonicParsing="false" text="Alterar">
+      <Button layoutX="285.0" layoutY="343.0" mnemonicParsing="false" onAction="#alterar" text="Alterar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="407.0" layoutY="343.0" mnemonicParsing="false" text="Deletar">
+      <Button layoutX="407.0" layoutY="343.0" mnemonicParsing="false" onAction="#deletar" text="Deletar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

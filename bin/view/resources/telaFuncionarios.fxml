@@ -8,18 +8,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E88BEA;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="api.controllers.produtoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E88BEA;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="api.controllers.funcionarioController">
    <children>
-      <Label layoutX="261.0" layoutY="27.0" text="Produtos" textFill="WHITE">
+      <Label layoutX="246.0" layoutY="27.0" text="Funcionarios" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TableView fx:id="listarProdutosTable" layoutX="285.0" layoutY="77.0" onSort="#listar" prefHeight="229.0" prefWidth="301.0">
+      <TableView fx:id="listarFuncionarioTable" layoutX="285.0" layoutY="77.0" onSort="#listar" prefHeight="229.0" prefWidth="301.0">
         <columns>
           <TableColumn fx:id="columnID" minWidth="100.0" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="columnNome" minWidth="100.0" prefWidth="75.0" text="Nome" />
-            <TableColumn fx:id="columnQuantidade" minWidth="100.0" prefWidth="75.0" text="Quantidade" />
+            <TableColumn fx:id="columnTelefone" minWidth="100.0" prefWidth="75.0" text="Telefone" />
         </columns>
       </TableView>
       <Button layoutX="59.0" layoutY="343.0" mnemonicParsing="false" onAction="#voltar" text="Voltar">
@@ -42,7 +42,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="49.0" layoutY="183.0" text="Preco" textFill="WHITE">
+      <Label layoutX="41.0" layoutY="183.0" text="Telefone" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -60,11 +60,5 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label layoutX="39.0" layoutY="225.0" text="Adicional" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <TextField layoutX="125.0" layoutY="221.0" />
    </children>
 </Pane>

@@ -15,7 +15,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.dao.ClienteDao;
+import model.Services.ClienteBO;
 import model.entities.Cliente;
 import view.Telas;
 
@@ -36,7 +36,7 @@ public class clienteController {
 	@FXML
 	private TableColumn<clienteDTO, String> columnTelefone;
 
-	private ClienteBo clienteBo = new model.Services.ClienteBO();
+	private ClienteBO clienteBo = new model.Services.ClienteBO();
 	private Cliente cliente = new Cliente();
 	private	Endereco endereco = new Endereco();
 
@@ -64,7 +64,7 @@ public class clienteController {
 		if (clienteBo.deletar(nome.getText())) {
 			System.out.println("Cliente deletado com sucesso!");
 		} else {
-			System.out.println("Erro ao deletar um cliente")
+			System.out.println("Erro ao deletar um cliente");
 		}
 	}
 
@@ -96,7 +96,7 @@ public class clienteController {
 
 	@FXML
 	public void listar() {
-		List<Cliente> clientes = dao.listar();
+		List<Cliente> clientes = clienteBo.listar();
 		listaDeClientes = FXCollections.observableArrayList(clientes);
 		columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		columnTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));

@@ -5,6 +5,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import model.dao.FuncionarioDao;
+import model.Services.FuncionarioBO;
 import model.entities.Funcionario;
 import api.dto.funcionarioDTO;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ public class funcionarioController {
 	@FXML private TextField id;
 	@FXML private TextField telefone;
 	@FXML private TextField nome;
+	@FXML private TextField cpf;
 
 	@FXML
 	private TableColumn<funcionarioDTO, String> columnNome;
@@ -41,20 +43,21 @@ public class funcionarioController {
 		funcionario.setNome(nome.getText());
 		funcionario.setTelefone(telefone.getText());
 		funcionario.setId(id.getText());
+		funcionario.setCpf(cpf.getText());
 		funcionarioBo.adicionar(funcionario);
-		if (clienteBo.adicionar(cliente)) {
+		if (funcionarioBo.adicionar(funcionario)) {
 			System.out.println("Funcionario criado com sucesso!");
 		} else {
-			System.out.println("Erro ao criar um funcionario")
+			System.out.println("Erro ao criar um funcionario");
 		}
 	}
 
 	@FXML
 	public void deletar() {
-		if (funcionarioBo.deletar(nome.getText())) {
-			System.out.println("Cliente deletado com sucesso!");
+		if (funcionarioBo.deletar(cpf.getText())) {
+			System.out.println("Funcionario deletado com sucesso!");
 		} else {
-			System.out.println("Erro ao deletar um cliente")
+			System.out.println("Erro ao deletar um cliente");
 		}
 	}
 
@@ -63,11 +66,12 @@ public class funcionarioController {
 		funcionario.setNome(nome.getText());
 		funcionario.setTelefone(telefone.getText());
 		funcionario.setId(id.getText());
+		funcionario.setCpf(cpf.getText());
 		funcionarioBo.adicionar(funcionario);
-		if (clienteBo.adicionar(cliente)) {
+		if (funcionarioBo.adicionar(funcionario)) {
 			System.out.println("Funcionario alterado com sucesso!");
 		} else {
-			System.out.println("Erro ao alterar um funcionario")
+			System.out.println("Erro ao alterar um funcionario");
 		}
 	}
 

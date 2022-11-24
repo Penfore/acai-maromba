@@ -2,6 +2,7 @@ package api.controllers;
 
 
 
+import model.Services.ProdutoBO;
 import model.entities.Produto;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -27,7 +28,7 @@ public class produtoController {
 	@FXML
 	private TableView<Produto> listarProdutosTable;
 
-	private ProdutoBO produtoBo = new ProdutoBo();
+	private ProdutoBO produtoBo = new ProdutoBO();
 	private Produto produto = new Produto();
 
 	@FXML
@@ -59,7 +60,7 @@ public class produtoController {
 		if (produtoBo.deletar(nome.getText())) {
 			System.out.println("Produto deletado com sucesso!");
 		} else {
-			System.out.println("Erro ao deletar um produto")
+			System.out.println("Erro ao deletar um produto");
 		}
 	}
 

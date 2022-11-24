@@ -13,7 +13,7 @@ public class FuncionarioDao extends ConnectionFactory {
 	
 	public boolean adicionar(Funcionario funcionario) {
         String sql = "INSERT INTO produto" +
-                "(id, nome, telefone) "
+                "(id, nome, telefone, cpf) "
                 +
                 "VALUES(?, ?, ?, ?, ?);";
 
@@ -22,6 +22,7 @@ public class FuncionarioDao extends ConnectionFactory {
             preparedStatement.setString(1, funcionario.getId());
             preparedStatement.setString(2, funcionario.getNome());
             preparedStatement.setString(3, funcionario.getTelefone());
+            preparedStatement.setString(4, funcionario.getCpf());
             preparedStatement.execute();
 
             return true;
@@ -33,10 +34,10 @@ public class FuncionarioDao extends ConnectionFactory {
     }
 
 	public Funcionario buscar(Funcionario funcionario) {
-        String sql = "SELECT * FROM cliente WHERE nome=? ;";
+        String sql = "SELECT * FROM funcionario WHERE cpf=? ;";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, funcionario.getNome());
+            preparedStatement.setString(1, funcionario.getCpf());
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return funcionario;
@@ -50,13 +51,14 @@ public class FuncionarioDao extends ConnectionFactory {
 
     public boolean alterar(Funcionario funcionario) {
         String sql = "UPDATE cliente " +
-                "SET id=?, nome=?, telefone=? ";
+                "SET id=?, nome=?, telefone=?, cpf=?";
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
             preparedStatement.setString(1, funcionario.getId());
             preparedStatement.setString(2, funcionario.getNome());
             preparedStatement.setString(3, funcionario.getTelefone());
+            preparedStatement.setString(4, funcionario.getCpf());
             preparedStatement.executeUpdate();
 
             return true;
@@ -68,10 +70,10 @@ public class FuncionarioDao extends ConnectionFactory {
     }
 
     public boolean deletar(Funcionario funcionario) {
-        String sql = "DELETE FROM cliente WHERE nome=? ;";
+        String sql = "DELETE FROM funcionario WHERE cpf=? ;";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, funcionario.getNome());
+            preparedStatement.setString(1, funcionario.getCpf());
             preparedStatement.execute();
 
             return true;
@@ -93,6 +95,7 @@ public class FuncionarioDao extends ConnectionFactory {
                 funcionario.setId(resultSet.getString("id"));
                 funcionario.setNome(resultSet.getString("nome"));
                 funcionario.setTelefone(resultSet.getString("telefone"));
+                funcionario.setTelefone(resultSet.getString("cpf"));
 
                 funcionarios.add(funcionario);
             }

@@ -5,6 +5,7 @@ public class Funcionario {
 	private String id;
 	private String nome;
 	private String telefone;
+	private String cpf;
 	
 	public String getId() {
 		return id;
@@ -24,8 +25,12 @@ public class Funcionario {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	
-	
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 	
 
 }

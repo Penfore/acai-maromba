@@ -4,6 +4,7 @@ package api.controllers;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import api.dto.pedidoDTO;
+import model.Services.PedidoBO;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import model.entities.Pedido;
@@ -28,7 +29,7 @@ public class pedidoController {
 	@FXML
 	private TableView<Pedido> listarPedidoTable;
 
-	private PedidoBo pedidoBo = new PedidoBo();
+	private PedidoBO pedidoBo = new PedidoBO();
 	private Pedido pedido = new Pedido();
 
 	@FXML
@@ -71,7 +72,7 @@ public class pedidoController {
 		if (pedidoBo.deletar(nome.getText())) {
 			System.out.println("Pedido deletado com sucesso!");
 		} else {
-			System.out.println("Erro ao deletar um pedido")
+			System.out.println("Erro ao deletar um pedido");
 		}
 	}
 

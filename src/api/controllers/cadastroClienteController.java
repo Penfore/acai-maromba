@@ -2,9 +2,9 @@ package api.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import model.dao.ClienteDao;
 import model.entities.Cliente;
 import model.entities.Endereco;
+import model.Services.ClienteBO;
 import view.Telas;
 
 public class cadastroClienteController {
@@ -17,7 +17,7 @@ public class cadastroClienteController {
 	@FXML private TextField logradouro;
 	@FXML private TextField numero;
 
-	private ClienteBo clienteBo = new model.Services.ClienteBO();
+	private ClienteBO clienteBo = new model.Services.ClienteBO();
   	private Cliente cliente = new Cliente();
   	private	Endereco endereco = new Endereco();
 
@@ -34,7 +34,7 @@ public class cadastroClienteController {
 		if (clienteBo.adicionar(cliente)) {
 			System.out.println("Cliente criado com sucesso!");
 		} else {
-			System.out.println("Erro ao criar um cliente")
+			System.out.println("Erro ao criar um cliente");
 		}
 	}
 

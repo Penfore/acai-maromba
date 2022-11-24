@@ -4,8 +4,8 @@ public class clienteDTO {
 	private String nome;
 	private String telefone;
 	private enderecoDTO enderecoDTO;
-	
-	
+
+
 	public String getNome() {
 		return nome;
 	}
@@ -24,7 +24,7 @@ public class clienteDTO {
 	public void setEnderecoDTO(enderecoDTO enderecoDTO) {
 		this.enderecoDTO = enderecoDTO;
 	}
-	
-	
+
+
 
 }

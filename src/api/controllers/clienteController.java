@@ -20,8 +20,6 @@ import model.entities.Cliente;
 import view.Telas;
 
 public class clienteController {
-	
-	
 	@FXML private TextField nome;
 	@FXML private TextField telefone;
 	@FXML private TextField pais;
@@ -29,48 +27,68 @@ public class clienteController {
 	@FXML private TextField cidade;
 	@FXML private TextField logradouro;
 	@FXML private TextField numero;
-		  private ClienteDao dao = new ClienteDao();
+		private ObservableList<Cliente> listaDeClientes;
 
-		  private ObservableList<Cliente> listaDeClientes;
-	
 	@FXML
 	private TableView<Cliente> listarTable;
-	@FXML 
+	@FXML
 	private TableColumn<clienteDTO, String> columnNome;
-	@FXML 
+	@FXML
 	private TableColumn<clienteDTO, String> columnTelefone;
+
+	private ClienteBo clienteBo = new model.Services.ClienteBO();
+	private Cliente cliente = new Cliente();
+	private	Endereco endereco = new Endereco();
 
 	@FXML
 	public void adicionarCliente() {
-		Cliente clc = new Cliente();
-		Endereco end = new Endereco();
-		clc.setNome(nome.getText());
-		clc.setTelefone(telefone.getText());
-		end.setPais(pais.getText());
-		end.setEstado(estado.getText());
-		end.setCidade(cidade.getText());
-		end.setLogradouro(logradouro.getText());
-		end.setNumero(numero.getText());
-		clc.setEndereco(end);
-		dao.adicionar(clc);
+		cliente.setNome(nome.getText());
+		cliente.setTelefone(telefone.getText());
+		endereco.setPais(pais.getText());
+		endereco.setEstado(estado.getText());
+		endereco.setCidade(cidade.getText());
+		endereco.setLogradouro(logradouro.getText());
+		endereco.setNumero(numero.getText());
+		cliente.setEndereco(endereco);
+		if (clienteBo.adicionar(cliente)) {
+			System.out.println("Cliente criado com sucesso!");
+		} else {
+			System.out.println("Erro ao criar um cliente");
+		}
 	}
-	
+
 
 	// TODO: Implementar o restante na view
 	@FXML
 	public void deletar() {
-		
+		if (clienteBo.deletar(nome.getText())) {
+			System.out.println("Cliente deletado com sucesso!");
+		} else {
+			System.out.println("Erro ao deletar um cliente")
+		}
 	}
 
 	@FXML
 	public void alterar() {
-		
+		cliente.setNome(nome.getText());
+		cliente.setTelefone(telefone.getText());
+		endereco.setPais(pais.getText());
+		endereco.setEstado(estado.getText());
+		endereco.setCidade(cidade.getText());
+		endereco.setLogradouro(logradouro.getText());
+		endereco.setNumero(numero.getText());
+		cliente.setEndereco(endereco);
+		if (clienteBo.alterar(cliente)) {
+			System.out.println("Cliente alterado com sucesso!");
+		} else {
+			System.out.println("Erro ao alterar um cliente");
+		}
 	}
 
 	public void voltar() {
 		Telas.telaHome();
 	}
-	
+
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		listar();

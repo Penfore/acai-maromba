@@ -12,23 +12,24 @@ import javafx.fxml.FXML;
 import view.Telas;
 
 public class funcionarioController {
-	
-	FuncionarioDao dao = new FuncionarioDao();
-	
+
 	@FXML private TextField id;
 	@FXML private TextField telefone;
 	@FXML private TextField nome;
-	
-	@FXML 
+
+	@FXML
 	private TableColumn<funcionarioDTO, String> columnNome;
-	@FXML 
+	@FXML
 	private TableColumn<funcionarioDTO, String> columnID;
-	@FXML 
+	@FXML
 	private TableColumn<funcionarioDTO, String> columnTelefone;
-	
+
 	// TODO: Criar entidade de Funcionario
 	@FXML
 	private TableView<Funcionario> listarFuncionarioTable;
+
+	private FuncionarioBO funcionarioBo = new FuncionarioBO();
+	private Funcionario funcionario = new Funcionario();
 
 	@FXML
 	public void listar() {
@@ -37,21 +38,37 @@ public class funcionarioController {
 
 	@FXML
 	public void adicionarFuncionario() {
-		Funcionario fun = new Funcionario();
-		fun.setNome(nome.getText());
-		fun.setTelefone(telefone.getText());
-		fun.setId(id.getText());
-		dao.adicionar(fun);
+		funcionario.setNome(nome.getText());
+		funcionario.setTelefone(telefone.getText());
+		funcionario.setId(id.getText());
+		funcionarioBo.adicionar(funcionario);
+		if (clienteBo.adicionar(cliente)) {
+			System.out.println("Funcionario criado com sucesso!");
+		} else {
+			System.out.println("Erro ao criar um funcionario")
+		}
 	}
 
 	@FXML
 	public void deletar() {
-
+		if (funcionarioBo.deletar(nome.getText())) {
+			System.out.println("Cliente deletado com sucesso!");
+		} else {
+			System.out.println("Erro ao deletar um cliente")
+		}
 	}
 
 	@FXML
 	public void alterar() {
-
+		funcionario.setNome(nome.getText());
+		funcionario.setTelefone(telefone.getText());
+		funcionario.setId(id.getText());
+		funcionarioBo.adicionar(funcionario);
+		if (clienteBo.adicionar(cliente)) {
+			System.out.println("Funcionario alterado com sucesso!");
+		} else {
+			System.out.println("Erro ao alterar um funcionario")
+		}
 	}
 
 	public void voltar() {

@@ -7,7 +7,7 @@ import model.dao.ClienteDao;
 
 public class ClienteBO implements BaseInterBO<Cliente> {
 
-	
+
 	ClienteDao dao = new ClienteDao();
 
 	public boolean adicionar(Cliente cliente) {
@@ -26,11 +26,11 @@ public class ClienteBO implements BaseInterBO<Cliente> {
 		}
 	}
 
-	public boolean deletar(Cliente cliente) {
-		Cliente clienteTeste = dao.buscar(cliente);
+	public boolean deletar(String clienteNome) {
+		Cliente clienteTeste = dao.buscar(clienteNome);
 		try {
 			if (clienteTeste != null) {
-				if (dao.deletar(cliente) == true)
+				if (dao.deletar(clienteNome) == true)
 					return true;
 				else
 					return false;
@@ -80,6 +80,6 @@ public class ClienteBO implements BaseInterBO<Cliente> {
 			return null;
 		}
 	}
-    
-	
+
+
 }

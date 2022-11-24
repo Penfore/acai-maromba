@@ -8,7 +8,7 @@ import model.entities.Endereco;
 import view.Telas;
 
 public class cadastroClienteController {
-	
+
 	@FXML private TextField nome;
 	@FXML private TextField telefone;
 	@FXML private TextField pais;
@@ -16,23 +16,28 @@ public class cadastroClienteController {
 	@FXML private TextField cidade;
 	@FXML private TextField logradouro;
 	@FXML private TextField numero;
-		  private ClienteDao dao = new ClienteDao();
-	
+
+	private ClienteBo clienteBo = new model.Services.ClienteBO();
+  	private Cliente cliente = new Cliente();
+  	private	Endereco endereco = new Endereco();
+
     @FXML
 	public void adicionarCliente() {
-    	Cliente clc = new Cliente();
-		Endereco end = new Endereco();
-		clc.setNome(nome.getText());
-		clc.setTelefone(telefone.getText());
-		end.setPais(pais.getText());
-		end.setEstado(estado.getText());
-		end.setCidade(cidade.getText());
-		end.setLogradouro(logradouro.getText());
-		end.setNumero(numero.getText());
-		clc.setEndereco(end);
-		dao.adicionar(clc);
+    	cliente.setNome(nome.getText());
+		cliente.setTelefone(telefone.getText());
+		endereco.setPais(pais.getText());
+		endereco.setEstado(estado.getText());
+		endereco.setCidade(cidade.getText());
+		endereco.setLogradouro(logradouro.getText());
+		endereco.setNumero(numero.getText());
+		cliente.setEndereco(endereco);
+		if (clienteBo.adicionar(cliente)) {
+			System.out.println("Cliente criado com sucesso!");
+		} else {
+			System.out.println("Erro ao criar um cliente")
+		}
 	}
-	
+
 	public void voltar() {
 		Telas.telaPedidos();
 	}

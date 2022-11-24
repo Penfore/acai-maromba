@@ -79,11 +79,11 @@ public class ClienteDao extends ConnectionFactory {
         }
     }
 
-    public boolean deletar(Cliente cliente) {
+    public boolean deletar(String clienteNome) {
         String sql = "DELETE FROM cliente WHERE nome=? ;";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, cliente.getNome());
+            preparedStatement.setString(1, clienteNome);
             preparedStatement.execute();
 
             return true;

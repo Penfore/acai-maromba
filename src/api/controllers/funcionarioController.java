@@ -76,7 +76,7 @@ public class funcionarioController {
 	}
 
 	public void voltar() {
-		Telas.telaHome();
+		Telas.telaHomeGerente();
 	}
 
 }

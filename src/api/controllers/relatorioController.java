@@ -22,7 +22,7 @@ public class relatorioController {
 	private TableView<Relatorio> listarRelatoriosTable;
 
 	public void voltar() {
-		Telas.telaHome();
+		Telas.telaHomeGerente();
 	}
 
 	@FXML

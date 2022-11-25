@@ -11,8 +11,8 @@ public class loginController {
 
 	@FXML
 	public void autenticar() {
-		// TODO: Os campos login e senha serão validados aqui dentro
 		Telas.telaHome();
+		// para acessar função de gerente, trocar Telas.telaHome();, para Telas.telaHomeGerente();
 	}
 	
 	public void cadastrar() {

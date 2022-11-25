@@ -65,7 +65,7 @@ public class produtoController {
 	}
 
 	public void voltar() {
-		Telas.telaHome();
+		Telas.telaHomeGerente();
 	}
 
 	@FXML

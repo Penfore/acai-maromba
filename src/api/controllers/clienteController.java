@@ -32,9 +32,9 @@ public class clienteController {
 	@FXML
 	private TableView<Cliente> listarTable;
 	@FXML
-	private TableColumn<clienteDTO, String> columnNome;
+	private TableColumn<Cliente, String> columnNome;
 	@FXML
-	private TableColumn<clienteDTO, String> columnTelefone;
+	private TableColumn<Cliente, String> columnTelefone;
 
 	private ClienteBO clienteBo = new model.Services.ClienteBO();
 	private Cliente cliente = new Cliente();

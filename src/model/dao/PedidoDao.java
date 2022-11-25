@@ -20,12 +20,11 @@ public class PedidoDao extends ConnectionFactory {
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            // TODO: Verificar como converter LocalDate para Date
-            // preparedStatement.setDate(1, pedido.getDataPedido());
+            preparedStatement.setString(1, pedido.getDataPedido());
             preparedStatement.setInt(2, pedido.getCliente().getId());
             preparedStatement.setInt(3, pedido.getQuantidade());
             preparedStatement.setInt(4, pedido.getProduto().getId());
-            preparedStatement.setString(5, pedido.getFormaPagamento().getDescricao());
+            preparedStatement.setString(5, pedido.getFormaPagamento());
 
             preparedStatement.execute();
 
@@ -64,12 +63,11 @@ public class PedidoDao extends ConnectionFactory {
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            // TODO: Verificar como converter LocalDate para Date
-            // preparedStatement.setDate(1, pedido.getDataPedido());
+            preparedStatement.setString(1, pedido.getDataPedido());
             preparedStatement.setInt(2, pedido.getCliente().getId());
             preparedStatement.setInt(3, pedido.getQuantidade());
             preparedStatement.setInt(4, pedido.getProduto().getId());
-            preparedStatement.setString(5, pedido.getFormaPagamento().getDescricao());
+            preparedStatement.setString(5, pedido.getFormaPagamento());
 
             preparedStatement.setInt(6, pedido.getId());
             preparedStatement.executeUpdate();
@@ -108,8 +106,7 @@ public class PedidoDao extends ConnectionFactory {
 
             while (resultSet.next()) {
                 pedido.setId(resultSet.getInt("id"));
-                // TODO: Verificar como converter LocalDate para Date
-                // pedido.setDataPedido(resultSet.getDate("data_pedido"));
+                pedido.setDataPedido(resultSet.getString("data_pedido"));
                 cliente.setId(resultSet.getInt("cliente_fk"));
                 pedido.setCliente(cliente);
                 pedido.setQuantidade(resultSet.getInt("quantidade"));

@@ -1,9 +1,7 @@
 package model.entities;
 
-import java.time.LocalDate;
-
 public class Pedido {
-    Pedido(LocalDate dataPedido, Cliente cliente, int quantidade, Produto produto, FormaPagamento formaPagamento) {
+    Pedido(String dataPedido, Cliente cliente, int quantidade, Produto produto, FormaPagamento formaPagamento) {
         setDataPedido(dataPedido);
         setCliente(cliente);
         setQuantidade(quantidade);
@@ -12,18 +10,18 @@ public class Pedido {
     }
 
     public Pedido() {
-        this.dataPedido = LocalDate.now();
+        this.dataPedido = "";
         this.cliente = new Cliente();
         this.quantidade = 0;
         this.produto = new Produto();
-        this.formaPagamento = FormaPagamento.VAZIO;
+        this.formaPagamento = "";
     }
 
-    private LocalDate dataPedido;
+    private String dataPedido;
     private Cliente cliente;
     private int quantidade;
     private Produto produto;
-    private FormaPagamento formaPagamento;
+    private String formaPagamento;
     private int id;
 
     // Setters
@@ -35,11 +33,11 @@ public class Pedido {
         }
     }
 
-    public void setDataPedido(LocalDate novaDataPedido) {
+    public void setDataPedido(String novaDataPedido) {
         if (dataPedido != null)
             this.dataPedido = novaDataPedido;
         else
-            this.dataPedido = LocalDate.now();
+            this.dataPedido = "";
     }
 
     public void setCliente(Cliente novoCliente) {
@@ -63,11 +61,11 @@ public class Pedido {
             this.produto = new Produto(); // empty
     }
 
-    public void setFormaPagamento(FormaPagamento formaPagamento) {
+    public void setFormaPagamento(String formaPagamento) {
         if (formaPagamento != null)
             this.formaPagamento = formaPagamento;
         else
-            this.formaPagamento = FormaPagamento.VAZIO;
+            this.formaPagamento = "";
     }
 
     // Getters
@@ -75,7 +73,7 @@ public class Pedido {
         return this.id;
     }
 
-    public LocalDate getDataPedido() {
+    public String getDataPedido() {
         return dataPedido;
     }
 
@@ -91,13 +89,13 @@ public class Pedido {
         return produto;
     }
 
-    public FormaPagamento getFormaPagamento() {
+    public String getFormaPagamento() {
         return formaPagamento;
     }
 
     // Cleaners
     public void clearDataPedido() {
-        this.dataPedido = LocalDate.now();
+        this.dataPedido = "";
     }
 
     public void clearCliente() {
@@ -109,7 +107,7 @@ public class Pedido {
     }
 
     public void clearFormaPagament() {
-        this.formaPagamento = FormaPagamento.VAZIO;
+        this.formaPagamento = "";
     }
 
 }

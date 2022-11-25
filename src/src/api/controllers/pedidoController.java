@@ -1,23 +1,29 @@
 package api.controllers;
 
+import javax.swing.table.TableColumn;
+import javax.swing.text.TableView;
 
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import api.dto.pedidoDTO;
-import model.Services.PedidoBO;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.TextField;
+import model.Services.PedidoBO;
+import model.entities.Cliente;
 import model.entities.Pedido;
-import view.Telas;
+import model.entities.Produto;
+import src.view.Telas;
 
 public class pedidoController {
 
-	@FXML private TextField cliente;
-	@FXML private TextField produto;
-	@FXML private TextField adicional;
-	@FXML private TextField quantidade;
-	@FXML private TextField data;
-	@FXML private TextField formaPagamento;
+	@FXML
+	private TextField cliente;
+	@FXML
+	private TextField produto;
+	@FXML
+	private TextField quantidade;
+	@FXML
+	private TextField data;
+	@FXML
+	private TextField formaPagamento;
 
 	@FXML
 	private TableColumn<pedidoDTO, String> columnPedido;
@@ -31,12 +37,15 @@ public class pedidoController {
 
 	private PedidoBO pedidoBo = new PedidoBO();
 	private Pedido pedido = new Pedido();
+	private Cliente clienteEntidade = new Cliente();
+	private Produto produtoEntidade = new Produto();
 
 	@FXML
 	public void adicionarPedido() {
-		pedido.cliente.setNome(cliente.getText());
-		pedido.produto.setNome(produto.getText());
-		pedido.adicional.setNome(adicional.getText());
+		clienteEntidade.setNome(cliente.getText());
+		pedido.setCliente(clienteEntidade);
+		produtoEntidade.setNome(produto.getText());
+		pedido.setProduto(produtoEntidade);
 		pedido.setQuantidade(quantidade.getText());
 		pedido.setDataPedido(data.getText());
 		pedido.setFormaPagamento(formaPagamento.getText());

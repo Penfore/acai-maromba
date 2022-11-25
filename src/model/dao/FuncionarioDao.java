@@ -12,14 +12,14 @@ import model.entities.Funcionario;
 public class FuncionarioDao extends ConnectionFactory {
 	
 	public boolean adicionar(Funcionario funcionario) {
-        String sql = "INSERT INTO produto" +
+        String sql = "INSERT INTO funcionario" +
                 "(id, nome, telefone, cpf) "
                 +
-                "VALUES(?, ?, ?, ?, ?);";
+                "VALUES(?, ?, ?, ?);";
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, funcionario.getId());
+            preparedStatement.setInt(1, funcionario.getId());
             preparedStatement.setString(2, funcionario.getNome());
             preparedStatement.setString(3, funcionario.getTelefone());
             preparedStatement.setString(4, funcionario.getCpf());
@@ -55,7 +55,7 @@ public class FuncionarioDao extends ConnectionFactory {
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, funcionario.getId());
+            preparedStatement.setInt(1, funcionario.getId());
             preparedStatement.setString(2, funcionario.getNome());
             preparedStatement.setString(3, funcionario.getTelefone());
             preparedStatement.setString(4, funcionario.getCpf());
@@ -92,7 +92,7 @@ public class FuncionarioDao extends ConnectionFactory {
             Funcionario funcionario = new Funcionario();
 
             while (resultSet.next()) {
-                funcionario.setId(resultSet.getString("id"));
+                funcionario.setId(resultSet.getInt("id"));
                 funcionario.setNome(resultSet.getString("nome"));
                 funcionario.setTelefone(resultSet.getString("telefone"));
                 funcionario.setTelefone(resultSet.getString("cpf"));

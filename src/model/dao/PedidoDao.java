@@ -14,17 +14,18 @@ import model.entities.Produto;
 public class PedidoDao extends ConnectionFactory {
     public boolean adicionar(Pedido pedido) {
         String sql = "INSERT INTO pedido" +
-                "(data_pedido, cliente_fk, quantidade, produto_fk, forma_pagamento) "
+                "(id, data_pedido, cliente_fk, produto_fk, quantidade, forma_pagamento) "
                 +
-                "VALUES(?, ?, ?, ?, ?);";
+                "VALUES(?, ?, ?, ?, ?, ?);";
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, pedido.getDataPedido());
-            preparedStatement.setInt(2, pedido.getCliente().getId());
-            preparedStatement.setInt(3, pedido.getQuantidade());
+            preparedStatement.setInt(1, pedido.getId());
+            preparedStatement.setString(2, pedido.getDataPedido());
+            preparedStatement.setInt(3, pedido.getCliente().getId());
             preparedStatement.setInt(4, pedido.getProduto().getId());
-            preparedStatement.setString(5, pedido.getFormaPagamento());
+            preparedStatement.setInt(5, pedido.getQuantidade());
+            preparedStatement.setString(6, pedido.getFormaPagamento());
 
             preparedStatement.execute();
 

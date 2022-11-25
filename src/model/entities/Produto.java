@@ -1,13 +1,11 @@
 package model.entities;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Produto {
 
     private String nome;
     private double preco;
-    private List<Adicional> adicionais;
+    private int quantidade;
     private int id;
 
     // Getters
@@ -16,9 +14,7 @@ public class Produto {
         return this.id;
     }
 
-    public List<Adicional> getAdicionais() {
-        return adicionais;
-    }
+    
 
     public String getNome() {
         return nome;
@@ -52,10 +48,7 @@ public class Produto {
             this.preco = 2000.0;
     }
 
-    public void setAdicionais(List<Adicional> adicionais) {
-        if (adicionais != null)
-            this.adicionais = adicionais;
-    }
+    
 
     // Construtor
 
@@ -73,7 +66,7 @@ public class Produto {
     public Produto() {
         this.nome = "";
         this.preco = 0;
-        this.adicionais = new ArrayList<Adicional>();
+        this.quantidade = 0;
     }
 
     // Clear
@@ -86,8 +79,20 @@ public class Produto {
         this.preco = 0.0;
     }
 
-    public void limparAdicional() {
-        this.adicionais = null;
+    public void limparQuantidade() {
+        this.quantidade = 0;
     }
+
+
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
 
 }

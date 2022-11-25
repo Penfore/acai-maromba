@@ -1,9 +1,8 @@
 package api.controllers;
 
-import javax.swing.table.TableColumn;
-import javax.swing.text.TableView;
-
 import javafx.fxml.FXML;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import model.Services.PedidoBO;
 import model.entities.Cliente;

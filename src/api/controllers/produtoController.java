@@ -16,14 +16,14 @@ public class produtoController {
 	@FXML private TextField id;
 	@FXML private TextField nome;
 	@FXML private TextField preco;
-	@FXML private TextField adicional;
+	@FXML private TextField quantidade;
 
 	@FXML
-	private TableColumn<produtoDTO, String> columnNome;
+	private TableColumn<Produto, String> columnNome;
 	@FXML
-	private TableColumn<produtoDTO, String> columnID;
+	private TableColumn<Produto, String> columnID;
 	@FXML
-	private TableColumn<produtoDTO, String> columnQuantidade;
+	private TableColumn<Produto, String> columnQuantidade;
 
 	@FXML
 	private TableView<Produto> listarProdutosTable;
@@ -33,9 +33,10 @@ public class produtoController {
 
 	@FXML
 	public void adicionarProduto() {
+		produto.setId(Integer.parseInt(id.getText()));
 		produto.setNome(nome.getText());
-		produto.setPreco(preco.getText());
-		produto.adicional.setNome(adicional.getText());
+		produto.setPreco(Double.parseDouble(preco.getText()));
+		produto.setQuantidade(Integer.parseInt(quantidade.getText()));
 		if (produtoBo.adicionar(produto)) {
 			System.out.println("Produto criado com sucesso!");
 		} else {
@@ -47,7 +48,6 @@ public class produtoController {
 	public void alterar() {
 		produto.setNome(nome.getText());
 		produto.setPreco(preco.getText());
-		produto.adicional.setNome(adicional.getText());
 		if (produtoBo.adicionar(produto)) {
 			System.out.println("Produto alterado com sucesso!");
 		} else {

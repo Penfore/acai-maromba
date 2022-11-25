@@ -19,7 +19,7 @@ public class Telas extends Application{
 	public void start(Stage argu) throws Exception {
 		setStage(argu);
 		argu.setTitle("Login");
-		telaLogin();
+		telaHomeGerente();
 		
 	}
 	

@@ -7,25 +7,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.entities.Adicional;
 import model.entities.Produto;
 
 public class ProdutoDao extends ConnectionFactory {
     public boolean adicionar(Produto produto) {
         String sql = "INSERT INTO produto" +
-                "(nome, preco, adicional1_fk, adicional2_fk, adicional3_fk) "
+                "(id, nome, preco, quantidadeEstoque) "
                 +
-                "VALUES(?, ?, ?, ?, ?);";
+                "VALUES(?, ?, ?, ?);";
 
         try {
-            List<Adicional> adicionais = produto.getAdicionais();
+    
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, produto.getNome());
-            preparedStatement.setDouble(2, produto.getPreco());
-            preparedStatement.setInt(3, adicionais.get(0).getId());
-            preparedStatement.setInt(4, adicionais.get(1).getId());
-            preparedStatement.setInt(5, adicionais.get(2).getId());
-
+            preparedStatement.setInt(1, produto.getId());
+            preparedStatement.setString(2, produto.getNome());
+            preparedStatement.setDouble(3, produto.getPreco());
+            preparedStatement.setInt(4, produto.getQuantidade());
             preparedStatement.execute();
 
             return true;
@@ -59,13 +56,11 @@ public class ProdutoDao extends ConnectionFactory {
                 "WHERE id=?;";
 
         try {
-            List<Adicional> adicionais = produto.getAdicionais();
+            
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
             preparedStatement.setString(1, produto.getNome());
             preparedStatement.setDouble(2, produto.getPreco());
-            preparedStatement.setInt(3, adicionais.get(0).getId());
-            preparedStatement.setInt(4, adicionais.get(1).getId());
-            preparedStatement.setInt(5, adicionais.get(2).getId());
+            
             preparedStatement.setInt(6, produto.getId());
 
             preparedStatement.executeUpdate();
@@ -99,16 +94,13 @@ public class ProdutoDao extends ConnectionFactory {
             Statement statement = getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
             Produto produto = new Produto();
-            List<Adicional> adicionais = new ArrayList<Adicional>();
+            
 
             while (resultSet.next()) {
                 produto.setId(resultSet.getInt("id"));
                 produto.setNome(resultSet.getString("nome"));
                 produto.setPreco(resultSet.getDouble("preco"));
-                adicionais.get(0).setId(resultSet.getInt("adicional_fk1"));
-                adicionais.get(1).setId(resultSet.getInt("adicional_fk2"));
-                adicionais.get(2).setId(resultSet.getInt("adicional_fk3"));
-                produto.setAdicionais(adicionais);
+
 
                 produtos.add(produto);
             }

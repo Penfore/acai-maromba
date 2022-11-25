@@ -1,7 +1,7 @@
 package model.entities;
 
 public class Pedido {
-    Pedido(String dataPedido, Cliente cliente, int quantidade, Produto produto, FormaPagamento formaPagamento) {
+    Pedido(String dataPedido, Cliente cliente, int quantidade, Produto produto, String formaPagamento) {
         setDataPedido(dataPedido);
         setCliente(cliente);
         setQuantidade(quantidade);

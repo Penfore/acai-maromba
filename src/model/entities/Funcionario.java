@@ -2,17 +2,12 @@ package model.entities;
 
 public class Funcionario {
 	
-	private String id;
+	private int id;
 	private String nome;
 	private String telefone;
 	private String cpf;
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -30,6 +25,12 @@ public class Funcionario {
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 

@@ -1,9 +1,9 @@
 package api.controllers;
 
-import api.dto.pedidoDTO;
+import javax.swing.table.TableColumn;
+import javax.swing.text.TableView;
+
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import model.Services.PedidoBO;
 import model.entities.Cliente;
@@ -45,7 +45,7 @@ public class pedidoController {
 		pedido.setCliente(clienteEntidade);
 		produtoEntidade.setNome(produto.getText());
 		pedido.setProduto(produtoEntidade);
-		pedido.setQuantidade(quantidade.getText());
+		pedido.setQuantidade(Integer.parseInt(quantidade.getText()));
 		pedido.setDataPedido(data.getText());
 		pedido.setFormaPagamento(formaPagamento.getText());
 		if (pedidoBo.adicionar(pedido)) {

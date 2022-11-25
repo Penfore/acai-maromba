@@ -1,33 +1,40 @@
 package api.controllers;
 
-
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import model.entities.Endereco;
-import api.dto.clienteDTO;
+import javax.swing.table.TableColumn;
+import javax.swing.text.TableView;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Services.ClienteBO;
 import model.entities.Cliente;
+import model.entities.Endereco;
 import view.Telas;
 
 public class clienteController {
-	@FXML private TextField nome;
-	@FXML private TextField telefone;
-	@FXML private TextField pais;
-	@FXML private TextField estado;
-	@FXML private TextField cidade;
-	@FXML private TextField logradouro;
-	@FXML private TextField numero;
-		private ObservableList<Cliente> listaDeClientes;
+	@FXML
+	private TextField nome;
+	@FXML
+	private TextField telefone;
+	@FXML
+	private TextField pais;
+	@FXML
+	private TextField estado;
+	@FXML
+	private TextField cidade;
+	@FXML
+	private TextField logradouro;
+	@FXML
+	private TextField numero;
+	@FXML
+	// private TextField nomeDeletar;
+	private ObservableList<Cliente> listaDeClientes;
 
 	@FXML
 	private TableView<Cliente> listarTable;
@@ -38,7 +45,7 @@ public class clienteController {
 
 	private ClienteBO clienteBo = new model.Services.ClienteBO();
 	private Cliente cliente = new Cliente();
-	private	Endereco endereco = new Endereco();
+	private Endereco endereco = new Endereco();
 
 	@FXML
 	public void adicionarCliente() {
@@ -57,11 +64,11 @@ public class clienteController {
 		}
 	}
 
-
 	// TODO: Implementar o restante na view
 	@FXML
 	public void deletar() {
 		if (clienteBo.deletar(nome.getText())) {
+			// if (clienteBo.deletar(nomeDeletar.getText())) {
 			System.out.println("Cliente deletado com sucesso!");
 		} else {
 			System.out.println("Erro ao deletar um cliente");

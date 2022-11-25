@@ -27,7 +27,6 @@ public class clienteController {
 	@FXML private TextField cidade;
 	@FXML private TextField logradouro;
 	@FXML private TextField numero;
-	@FXML private TextField nomeDeletar;
 		private ObservableList<Cliente> listaDeClientes;
 
 	@FXML
@@ -62,7 +61,7 @@ public class clienteController {
 	// TODO: Implementar o restante na view
 	@FXML
 	public void deletar() {
-		if (clienteBo.deletar(nomeDeletar.getText())) {
+		if (clienteBo.deletar(nome.getText())) {
 			System.out.println("Cliente deletado com sucesso!");
 		} else {
 			System.out.println("Erro ao deletar um cliente");

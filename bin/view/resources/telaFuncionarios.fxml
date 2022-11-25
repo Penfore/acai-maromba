@@ -32,24 +32,18 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label layoutX="59.0" layoutY="101.0" text="ID" textFill="WHITE">
+      <Label layoutX="48.0" layoutY="104.0" text="Nome" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="48.0" layoutY="142.0" text="Nome" textFill="WHITE">
+      <Label layoutX="40.0" layoutY="144.0" text="Telefone" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="41.0" layoutY="183.0" text="Telefone" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <TextField fx:id="id" layoutX="125.0" layoutY="97.0" />
-      <TextField fx:id="nome" layoutX="125.0" layoutY="138.0" />
-      <TextField fx:id="telefone" layoutX="125.0" layoutY="179.0" />
+      <TextField fx:id="nome" layoutX="125.0" layoutY="100.0" />
+      <TextField fx:id="telefone" layoutX="125.0" layoutY="140.0" />
       <Button layoutX="285.0" layoutY="343.0" mnemonicParsing="false" onAction="#alterar" text="Alterar">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -60,11 +54,11 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Label layoutX="54.0" layoutY="224.0" text="CPF" textFill="WHITE">
+      <Label layoutX="54.0" layoutY="183.0" text="CPF" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="cpf" layoutX="125.0" layoutY="220.0" />
+      <TextField fx:id="cpf" layoutX="125.0" layoutY="179.0" />
    </children>
 </Pane>

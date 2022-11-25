@@ -89,13 +89,14 @@ public class FuncionarioDao extends ConnectionFactory {
         try {
             Statement statement = getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            Funcionario funcionario = new Funcionario();
+            
 
             while (resultSet.next()) {
+            	Funcionario funcionario = new Funcionario();
                 funcionario.setId(resultSet.getInt("id"));
                 funcionario.setNome(resultSet.getString("nome"));
                 funcionario.setTelefone(resultSet.getString("telefone"));
-                funcionario.setTelefone(resultSet.getString("cpf"));
+                funcionario.setCpf(resultSet.getString("cpf"));
 
                 funcionarios.add(funcionario);
             }

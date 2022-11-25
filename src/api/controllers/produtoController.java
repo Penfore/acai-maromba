@@ -3,15 +3,25 @@ package api.controllers;
 
 
 import model.Services.ProdutoBO;
+import model.entities.Funcionario;
 import model.entities.Produto;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
 import api.dto.produtoDTO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import view.Telas;
 
-public class produtoController {
+public class produtoController implements Initializable {
 
 	@FXML private TextField id;
 	@FXML private TextField nome;
@@ -27,6 +37,9 @@ public class produtoController {
 
 	@FXML
 	private TableView<Produto> listarProdutosTable;
+	
+	@FXML
+	private ObservableList<Produto> listaDeProdutos;
 
 	private ProdutoBO produtoBo = new ProdutoBO();
 	private Produto produto = new Produto();
@@ -70,7 +83,17 @@ public class produtoController {
 
 	@FXML
 	public void listar() {
-
+		List<Produto> produtos = produtoBo.listar();
+		listaDeProdutos = FXCollections.observableArrayList(produtos);
+		columnID.setCellValueFactory(new PropertyValueFactory<>("id"));
+		columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
+		columnQuantidade.setCellValueFactory(new PropertyValueFactory<>("quantidade"));
+		listarProdutosTable.setItems(listaDeProdutos);
+	}
+	
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		listar();
 	}
 
 }

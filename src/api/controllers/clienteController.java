@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -16,7 +17,7 @@ import model.entities.Cliente;
 import model.entities.Endereco;
 import view.Telas;
 
-public class clienteController {
+public class clienteController implements Initializable {
 	@FXML
 	private TextField nome;
 	@FXML
@@ -96,7 +97,7 @@ public class clienteController {
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		
 		listar();
 	}
 

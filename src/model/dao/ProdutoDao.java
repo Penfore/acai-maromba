@@ -93,13 +93,15 @@ public class ProdutoDao extends ConnectionFactory {
         try {
             Statement statement = getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            Produto produto = new Produto();
+            
             
 
             while (resultSet.next()) {
+            	Produto produto = new Produto();
                 produto.setId(resultSet.getInt("id"));
                 produto.setNome(resultSet.getString("nome"));
                 produto.setPreco(resultSet.getDouble("preco"));
+                produto.setQuantidade(resultSet.getInt("quantidadeEstoque"));
 
 
                 produtos.add(produto);

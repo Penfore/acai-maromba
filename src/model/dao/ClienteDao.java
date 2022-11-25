@@ -99,10 +99,11 @@ public class ClienteDao extends ConnectionFactory {
         try {
             Statement statement = getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            Cliente cliente = new Cliente();
-            Endereco endereco = new Endereco();
+            
 
             while (resultSet.next()) {
+            	Cliente cliente = new Cliente();
+                Endereco endereco = new Endereco();
                 cliente.setId(resultSet.getInt("id"));
                 cliente.setNome(resultSet.getString("nome"));
                 cliente.setTelefone(resultSet.getString("telefone"));

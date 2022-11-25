@@ -5,35 +5,38 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import model.dao.FuncionarioDao;
 import model.Services.FuncionarioBO;
-import model.entities.Cliente;
 import model.entities.Funcionario;
 
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import api.dto.funcionarioDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-
+import javafx.fxml.Initializable;
 import view.Telas;
 
-public class funcionarioController {
+public class funcionarioController implements Initializable {
 
 	@FXML private TextField id;
 	@FXML private TextField telefone;
 	@FXML private TextField nome;
 	@FXML private TextField cpf;
+	@FXML private TextField buscar;
 
 	@FXML
 	private TableColumn<Funcionario, String> columnNome;
 	@FXML
-	private TableColumn<Funcionario, String> columnID;
+	private TableColumn<Funcionario, Integer> columnID;
 	@FXML
 	private TableColumn<Funcionario, String> columnTelefone;
 
-	// TODO: Criar entidade de Funcionario
 	@FXML
 	private TableView<Funcionario> listarFuncionarioTable;
 	@FXML
@@ -41,7 +44,7 @@ public class funcionarioController {
 
 	private FuncionarioBO funcionarioBo = new FuncionarioBO();
 	private Funcionario funcionario = new Funcionario();
-
+	
 	@FXML
 	public void listar() {
 		List<Funcionario> funcionarios = funcionarioBo.listar();
@@ -50,6 +53,10 @@ public class funcionarioController {
 		columnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
 		columnTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
 		listarFuncionarioTable.setItems(listaDeFuncionarios);
+	}
+	
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		listar();
 	}
 
 	@FXML
@@ -70,6 +77,7 @@ public class funcionarioController {
 	public void deletar() {
 		if (funcionarioBo.deletar(cpf.getText())) {
 			System.out.println("Funcionario deletado com sucesso!");
+			
 		} else {
 			System.out.println("Erro ao deletar um cliente");
 		}
@@ -88,9 +96,14 @@ public class funcionarioController {
 			System.out.println("Erro ao alterar um funcionario");
 		}
 	}
+	
 
+	@FXML
+	public void buscar() {
+		
+	}
 	public void voltar() {
 		Telas.telaHomeGerente();
-	}
+    }
 
 }

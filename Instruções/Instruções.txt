@@ -1,0 +1,10 @@
+No outro arquivo está as Querrys para construção do banco.
+
+
+Para rodar o programa do açai, vá na classe Telas que se encontra dentro de SRC -> VIEW -- Telas.class
+
+Ao entrar no programa vai ter o login e senha, a gente não conseguiu fazer a autenticação, 
+mas para acessar a tela funcionario, deixe em branco ou digite qualquer coisa e clique em login tanto faz, 
+que irá para tela funcionarios, mas caso queira testar o gerente, digite (admin) no login e (admin) na senha.
+
+Relatorios não foi implementado.

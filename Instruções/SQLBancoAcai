@@ -1,0 +1,41 @@
+// Banco de Dados
+CREATE DATABASE acai_maromba;
+USE acai_maromba;
+
+// Cliente
+CREATE TABLE cliente (
+nome VARCHAR(100) NOT NULL,
+telefone VARCHAR(20) NOT NULL,
+endereco_pais VARCHAR(70) NOT NULL,
+endereco_estado VARCHAR(70) NOT NULL,
+endereco_cidade VARCHAR(70) NOT NULL,
+endereco_logradouro VARCHAR(70) NOT NULL,
+endereco_numero VARCHAR(10) NOT NULL,
+cpf VARCHAR (15);
+
+// Produto
+CREATE TABLE produto (
+id VARCHAR (20) NOT NULL,
+nome VARCHAR(100) NOT NULL,
+preco DOUBLE NOT NULL,
+quantidade INT NOT NULL);
+
+//Funcionario
+CREATE TABLE funcionario (
+id INT NOT NULL,
+nome VARCHAR(50) NOT NULL,
+telefone VARCHAR(20) NOT NULL,
+cpf VARCHAR (15),
+PRIMARY KEY (id));
+
+
+// Pedido
+CREATE TABLE pedido (
+cliente VARCHAR(50) NOT NULL,
+produto VARCHAR(30) NOT NULL,
+quantidade INT NOT NULL,
+data VARCHAR(30) NOT NULL,
+forma_pagamento VARCHAR(50) NOT NULL);
+
+
+

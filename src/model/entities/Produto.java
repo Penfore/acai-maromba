@@ -6,13 +6,11 @@ public class Produto {
     private String nome;
     private double preco;
     private int quantidade;
-    private int id;
+    private String id;
 
     // Getters
 
-    public int getId() {
-        return this.id;
-    }
+    
 
     
 
@@ -26,13 +24,7 @@ public class Produto {
 
     // Setters
 
-    public void setId(int id) {
-        if (id >= 0) {
-            this.id = id;
-        } else {
-            System.out.println("ID invalido!");
-        }
-    }
+    
 
     public void setNome(String nome) {
         if (nome != null && !nome.isEmpty())
@@ -93,6 +85,14 @@ public class Produto {
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }

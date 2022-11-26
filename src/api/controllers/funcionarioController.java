@@ -29,6 +29,7 @@ public class funcionarioController implements Initializable {
 	@FXML private TextField nome;
 	@FXML private TextField cpf;
 	@FXML private TextField buscar;
+	@FXML private TextField deletar;
 
 	@FXML
 	private TableColumn<Funcionario, String> columnNome;
@@ -75,7 +76,9 @@ public class funcionarioController implements Initializable {
 
 	@FXML
 	public void deletar() {
-		if (funcionarioBo.deletar(cpf.getText())) {
+		funcionario.setCpf(deletar.getText());
+		funcionarioBo.deletar(funcionario);
+		if (funcionarioBo.deletar(funcionario)) {
 			System.out.println("Funcionario deletado com sucesso!");
 			
 		} else {
@@ -87,10 +90,10 @@ public class funcionarioController implements Initializable {
 	public void alterar() {
 		funcionario.setNome(nome.getText());
 		funcionario.setTelefone(telefone.getText());
-		funcionario.setId(id.getText());
+		funcionario.setId(Integer.parseInt(id.getText()));
 		funcionario.setCpf(cpf.getText());
-		funcionarioBo.adicionar(funcionario);
-		if (funcionarioBo.adicionar(funcionario)) {
+		funcionarioBo.alterar(funcionario);
+		if (funcionarioBo.alterar(funcionario)) {
 			System.out.println("Funcionario alterado com sucesso!");
 		} else {
 			System.out.println("Erro ao alterar um funcionario");

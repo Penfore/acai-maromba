@@ -12,14 +12,14 @@ import model.entities.Produto;
 public class ProdutoDao extends ConnectionFactory {
     public boolean adicionar(Produto produto) {
         String sql = "INSERT INTO produto" +
-                "(id, nome, preco, quantidadeEstoque) "
+                "(id, nome, preco, quantidade) "
                 +
                 "VALUES(?, ?, ?, ?);";
 
         try {
     
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setInt(1, produto.getId());
+            preparedStatement.setString(1, produto.getId());
             preparedStatement.setString(2, produto.getNome());
             preparedStatement.setDouble(3, produto.getPreco());
             preparedStatement.setInt(4, produto.getQuantidade());
@@ -34,10 +34,10 @@ public class ProdutoDao extends ConnectionFactory {
     }
 
     public Produto buscar(Produto produto) {
-        String sql = "SELECT * FROM produto WHERE nome=? ;";
+        String sql = "SELECT * FROM produto WHERE id=? ;";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, produto.getNome());
+            preparedStatement.setString(1, produto.getId());
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return produto;
@@ -51,18 +51,15 @@ public class ProdutoDao extends ConnectionFactory {
 
     public boolean alterar(Produto produto) {
         String sql = "UPDATE produto " +
-                "SET nome=?, preco=?, adicional1_fk=?, adicional2_fk=?, adicional3_fk=? "
-                +
-                "WHERE id=?;";
+                "SET nome=?, preco=?, quantidade=?" +
+                 "WHERE id=?";
 
         try {
-            
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, produto.getNome());
-            preparedStatement.setDouble(2, produto.getPreco());
-            
-            preparedStatement.setInt(6, produto.getId());
-
+            preparedStatement.setString(1, produto.getId());
+            preparedStatement.setString(2, produto.getNome());
+            preparedStatement.setDouble(3, produto.getPreco());
+            preparedStatement.setInt(4, produto.getQuantidade());
             preparedStatement.executeUpdate();
 
             return true;
@@ -77,7 +74,7 @@ public class ProdutoDao extends ConnectionFactory {
         String sql = "DELETE FROM produto WHERE id=? ;";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setInt(1, produto.getId());
+            preparedStatement.setString(1, produto.getId());
             preparedStatement.execute();
 
             return true;
@@ -98,10 +95,10 @@ public class ProdutoDao extends ConnectionFactory {
 
             while (resultSet.next()) {
             	Produto produto = new Produto();
-                produto.setId(resultSet.getInt("id"));
+                produto.setId(resultSet.getString("id"));
                 produto.setNome(resultSet.getString("nome"));
                 produto.setPreco(resultSet.getDouble("preco"));
-                produto.setQuantidade(resultSet.getInt("quantidadeEstoque"));
+                produto.setQuantidade(resultSet.getInt("quantidade"));
 
 
                 produtos.add(produto);

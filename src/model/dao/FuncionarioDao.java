@@ -19,7 +19,7 @@ public class FuncionarioDao extends ConnectionFactory {
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setInt(1, funcionario.getId());
+            preparedStatement.setString(1, funcionario.getId());
             preparedStatement.setString(2, funcionario.getNome());
             preparedStatement.setString(3, funcionario.getTelefone());
             preparedStatement.setString(4, funcionario.getCpf());
@@ -50,8 +50,9 @@ public class FuncionarioDao extends ConnectionFactory {
     }
 
     public boolean alterar(Funcionario funcionario) {
-        String sql = "UPDATE cliente " +
-                "SET id=?, nome=?, telefone=?, cpf=?";
+        String sql = "UPDATE funcionario " +
+                "SET id=?, nome=?, telefone=?" +
+        		 "WHERE cpf=?";
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);

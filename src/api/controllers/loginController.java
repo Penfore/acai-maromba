@@ -11,8 +11,12 @@ public class loginController {
 
 	@FXML
 	public void autenticar() {
-		Telas.telaHome();
-		// para acessar função de gerente, trocar Telas.telaHome();, para Telas.telaHomeGerente();
+		if(login.getText().equals("admin") && senha.getText().equals("admin")) {
+			Telas.telaHomeGerente();
+		} else {
+			Telas.telaHome();
+		}
+		
 	}
 	
 	public void cadastrar() {

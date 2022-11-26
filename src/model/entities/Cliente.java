@@ -5,6 +5,7 @@ public class Cliente {
         setNome(nome);
         setEndereco(endereco);
         setTelefone(telefone);
+        setCpf(cpf);
     }
 
     public Cliente() {
@@ -17,6 +18,7 @@ public class Cliente {
     private String nome;
     private Endereco endereco;
     private String telefone;
+    private String cpf;
 
     // Setters
     public void setId(int id) {
@@ -81,5 +83,13 @@ public class Cliente {
     public void clearTelefone() {
         this.telefone = "";
     }
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
 }

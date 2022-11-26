@@ -33,6 +33,14 @@ public class clienteController implements Initializable {
 	@FXML
 	private TextField numero;
 	@FXML
+	private TextField cpf;
+	
+	@FXML
+	private TextField buscar;
+	@FXML
+	private TextField deletar;
+	
+	@FXML
 	// private TextField nomeDeletar;
 	private ObservableList<Cliente> listaDeClientes;
 
@@ -57,6 +65,8 @@ public class clienteController implements Initializable {
 		endereco.setLogradouro(logradouro.getText());
 		endereco.setNumero(numero.getText());
 		cliente.setEndereco(endereco);
+		cliente.setCpf(cpf.getText());
+		clienteBo.adicionar(cliente);
 		if (clienteBo.adicionar(cliente)) {
 			System.out.println("Cliente criado com sucesso!");
 		} else {
@@ -67,8 +77,10 @@ public class clienteController implements Initializable {
 	// TODO: Implementar o restante na view
 	@FXML
 	public void deletar() {
-		if (clienteBo.deletar(nome.getText())) {
-			// if (clienteBo.deletar(nomeDeletar.getText())) {
+		cliente.setCpf(deletar.getText());
+		clienteBo.deletar(cliente);
+		if (clienteBo.deletar(cliente)) {
+			 
 			System.out.println("Cliente deletado com sucesso!");
 		} else {
 			System.out.println("Erro ao deletar um cliente");
@@ -85,6 +97,8 @@ public class clienteController implements Initializable {
 		endereco.setLogradouro(logradouro.getText());
 		endereco.setNumero(numero.getText());
 		cliente.setEndereco(endereco);
+		cliente.setCpf(cpf.getText());
+		clienteBo.alterar(cliente);
 		if (clienteBo.alterar(cliente)) {
 			System.out.println("Cliente alterado com sucesso!");
 		} else {
@@ -101,6 +115,11 @@ public class clienteController implements Initializable {
 		listar();
 	}
 
+	@FXML
+	public void buscar() {
+		
+	}
+	
 	@FXML
 	public void listar() {
 		List<Cliente> clientes = clienteBo.listar();

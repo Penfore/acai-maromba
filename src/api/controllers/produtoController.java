@@ -3,7 +3,6 @@ package api.controllers;
 
 
 import model.Services.ProdutoBO;
-import model.entities.Funcionario;
 import model.entities.Produto;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -14,7 +13,6 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import api.dto.produtoDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -46,7 +44,7 @@ public class produtoController implements Initializable {
 
 	@FXML
 	public void adicionarProduto() {
-		produto.setId(Integer.parseInt(id.getText()));
+		produto.setId(id.getText());
 		produto.setNome(nome.getText());
 		produto.setPreco(Double.parseDouble(preco.getText()));
 		produto.setQuantidade(Integer.parseInt(quantidade.getText()));
@@ -59,9 +57,12 @@ public class produtoController implements Initializable {
 
 	@FXML
 	public void alterar() {
+		produto.setId(id.getText());
 		produto.setNome(nome.getText());
-		produto.setPreco(preco.getText());
-		if (produtoBo.adicionar(produto)) {
+		produto.setPreco(Double.parseDouble(preco.getText()));
+		produto.setQuantidade(Integer.parseInt(quantidade.getText()));
+		produtoBo.alterar(produto);
+		if (produtoBo.alterar(produto)) {
 			System.out.println("Produto alterado com sucesso!");
 		} else {
 			System.out.println("Erro ao alterar um produto");
@@ -70,7 +71,9 @@ public class produtoController implements Initializable {
 
 	@FXML
 	public void deletar() {
-		if (produtoBo.deletar(nome.getText())) {
+		produto.setId(id.getText());
+		produtoBo.deletar(produto);
+		if (produtoBo.deletar(produto)) {
 			System.out.println("Produto deletado com sucesso!");
 		} else {
 			System.out.println("Erro ao deletar um produto");

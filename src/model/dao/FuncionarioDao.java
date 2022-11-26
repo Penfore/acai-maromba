@@ -19,7 +19,7 @@ public class FuncionarioDao extends ConnectionFactory {
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, funcionario.getId());
+            preparedStatement.setInt(1, funcionario.getId());
             preparedStatement.setString(2, funcionario.getNome());
             preparedStatement.setString(3, funcionario.getTelefone());
             preparedStatement.setString(4, funcionario.getCpf());

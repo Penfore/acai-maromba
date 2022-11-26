@@ -7,4 +7,6 @@ Ao entrar no programa vai ter o login e senha, a gente não conseguiu fazer a au
 mas para acessar a tela funcionario, deixe em branco ou digite qualquer coisa e clique em login tanto faz, 
 que irá para tela funcionarios, mas caso queira testar o gerente, digite (admin) no login e (admin) na senha.
 
+Metodos buscar não foram implementados.
+Listar da Tela Home, não foi implementado.
 Relatorios não foi implementado.

@@ -1,16 +1,22 @@
 package api.controllers;
 
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import model.Services.PedidoBO;
-import model.entities.Cliente;
 import model.entities.Pedido;
-import model.entities.Produto;
 import view.Telas;
 
-public class pedidoController {
+public class pedidoController implements Initializable {
 
 	@FXML
 	private TextField cliente;
@@ -22,30 +28,44 @@ public class pedidoController {
 	private TextField data;
 	@FXML
 	private TextField formaPagamento;
+	
+	@FXML
+	private TextField buscar;
+	@FXML
+	private TextField deletar;
 
 	@FXML
-	private TableColumn<Pedido, String> columnPedido;
-	@FXML
-	private TableColumn<Pedido, String> columnID;
+	private TableColumn<Pedido, String> columnProduto;
 	@FXML
 	private TableColumn<Pedido, String> columnCliente;
 
 	@FXML
 	private TableView<Pedido> listarPedidoTable;
+	@FXML
+	private ObservableList<Pedido> listaDePedidos;
 
 	private PedidoBO pedidoBo = new PedidoBO();
 	private Pedido pedido = new Pedido();
-	private Cliente clienteEntidade = new Cliente();
-	private Produto produtoEntidade = new Produto();
+	
+	@FXML
+	public void listar() {
+		List<Pedido> pedidos = pedidoBo.listar();
+		listaDePedidos = FXCollections.observableArrayList(pedidos);
+		columnCliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+		columnProduto.setCellValueFactory(new PropertyValueFactory<>("produto"));
+		listarPedidoTable.setItems(listaDePedidos);
+	}
+	
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		listar();
+	}
 
 	@FXML
 	public void adicionarPedido() {
-		clienteEntidade.setNome(cliente.getText());
-		pedido.setCliente(clienteEntidade);
-		produtoEntidade.setNome(produto.getText());
-		pedido.setProduto(produtoEntidade);
+		pedido.setCliente(cliente.getText());
+		pedido.setProduto(produto.getText());
 		pedido.setQuantidade(Integer.parseInt(quantidade.getText()));
-		pedido.setDataPedido(data.getText());
+		pedido.setData(data.getText());
 		pedido.setFormaPagamento(formaPagamento.getText());
 		if (pedidoBo.adicionar(pedido)) {
 			System.out.println("Pedio criado com sucesso!");
@@ -61,13 +81,13 @@ public class pedidoController {
 
 	@FXML
 	public void alterar() {
-		pedido.cliente.setNome(cliente.getText());
-		pedido.produto.setNome(produto.getText());
-		pedido.adicional.setNome(adicional.getText());
-		pedido.setQuantidade(quantidade.getText());
-		pedido.setDataPedido(data.getText());
+		pedido.setCliente(cliente.getText());
+		pedido.setProduto(produto.getText());
+		pedido.setQuantidade(Integer.parseInt(quantidade.getText()));
+		pedido.setData(data.getText());
 		pedido.setFormaPagamento(formaPagamento.getText());
-		if (pedidoBo.adicionar(pedido)) {
+		pedidoBo.alterar(pedido);
+		if (pedidoBo.alterar(pedido)) {
 			System.out.println("Pedio alterado com sucesso!");
 		} else {
 			System.out.println("Erro ao alterar um pedido");
@@ -76,20 +96,21 @@ public class pedidoController {
 
 	@FXML
 	public void deletar() {
-		if (pedidoBo.deletar(nome.getText())) {
+		pedido.setCliente(deletar.getText());
+		pedidoBo.deletar(pedido);
+		if (pedidoBo.deletar(pedido)) {
 			System.out.println("Pedido deletado com sucesso!");
 		} else {
 			System.out.println("Erro ao deletar um pedido");
 		}
 	}
+	
+	public void buscar() {
+		
+	}
 
 	public void voltar() {
 		Telas.telaHome();
-	}
-
-	@FXML
-	public void listar() {
-
 	}
 
 }

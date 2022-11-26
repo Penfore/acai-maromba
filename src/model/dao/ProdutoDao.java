@@ -51,15 +51,15 @@ public class ProdutoDao extends ConnectionFactory {
 
     public boolean alterar(Produto produto) {
         String sql = "UPDATE produto " +
-                "SET nome=?, preco=?, quantidade=?" +
+                "SET nome=?, preco=?, quantidade=? " +
                  "WHERE id=?";
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, produto.getId());
-            preparedStatement.setString(2, produto.getNome());
-            preparedStatement.setDouble(3, produto.getPreco());
-            preparedStatement.setInt(4, produto.getQuantidade());
+            preparedStatement.setString(4, produto.getId());
+            preparedStatement.setString(1, produto.getNome());
+            preparedStatement.setDouble(2, produto.getPreco());
+            preparedStatement.setInt(3, produto.getQuantidade());
             preparedStatement.executeUpdate();
 
             return true;

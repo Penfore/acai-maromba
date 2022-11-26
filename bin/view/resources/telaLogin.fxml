@@ -27,7 +27,7 @@
       </Label>
       <TextField fx:id="login" layoutX="424.0" layoutY="132.0" />
       <TextField fx:id="senha" layoutX="424.0" layoutY="179.0" />
-      <Button fx:id="loginButton" layoutX="472.0" layoutY="222.0" mnemonicParsing="false" onAction="#autenticar" text="Entrar">
+      <Button layoutX="522.0" layoutY="220.0" mnemonicParsing="false" onAction="#autenticar" text="Entrar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -37,5 +37,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
+      <Button layoutX="424.0" layoutY="220.0" mnemonicParsing="false" onAction="#cadastrar" text="Cadastrar">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
    </children>
 </Pane>

@@ -14,9 +14,9 @@ public class ClienteDao extends ConnectionFactory {
 
     public boolean adicionar(Cliente cliente) {
         String sql = "INSERT INTO cliente" +
-                "(nome, telefone, endereco_pais, endereco_estado, endereco_cidade, endereco_logradouro, endereco_numero) "
+                "(nome, telefone, endereco_pais, endereco_estado, endereco_cidade, endereco_logradouro, endereco_numero, cpf) "
                 +
-                "VALUES(?, ?, ?, ?, ?, ?, ?);";
+                "VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
@@ -27,6 +27,7 @@ public class ClienteDao extends ConnectionFactory {
             preparedStatement.setString(5, cliente.getEndereco().getCidade());
             preparedStatement.setString(6, cliente.getEndereco().getLogradouro());
             preparedStatement.setString(7, cliente.getEndereco().getNumero());
+            preparedStatement.setString(8, cliente.getCpf());
             preparedStatement.execute();
 
             return true;
@@ -38,10 +39,10 @@ public class ClienteDao extends ConnectionFactory {
     }
 
     public Cliente buscar(Cliente cliente) {
-        String sql = "SELECT * FROM cliente WHERE nome=? ;";
+        String sql = "SELECT * FROM cliente WHERE cpf=? ;";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, cliente.getNome());
+            preparedStatement.setString(1, cliente.getCpf());
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return cliente;
@@ -55,9 +56,8 @@ public class ClienteDao extends ConnectionFactory {
 
     public boolean alterar(Cliente cliente) {
         String sql = "UPDATE cliente " +
-                "SET nome=?, telefone=?, endereco_pais=?, endereco_estado=?, endereco_cidade=?, endereco_logradouro=?, endereco_numero=? "
-                +
-                "WHERE id=?;";
+                "SET nome=?, telefone=?, endereco_pais=?, endereco_estado=?, endereco_cidade=?, endereco_logradouro=?, endereco_numero=?" +
+                "WHERE cpf=?";
 
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
@@ -68,7 +68,7 @@ public class ClienteDao extends ConnectionFactory {
             preparedStatement.setString(5, cliente.getEndereco().getCidade());
             preparedStatement.setString(6, cliente.getEndereco().getLogradouro());
             preparedStatement.setString(7, cliente.getEndereco().getNumero());
-            preparedStatement.setInt(8, cliente.getId());
+            preparedStatement.setString(8, cliente.getCpf());
             preparedStatement.executeUpdate();
 
             return true;
@@ -80,10 +80,10 @@ public class ClienteDao extends ConnectionFactory {
     }
 
     public boolean deletar(Cliente cliente) {
-        String sql = "DELETE FROM cliente WHERE nome=? ;";
+        String sql = "DELETE FROM cliente WHERE cpf=? ;";
         try {
             PreparedStatement preparedStatement = getConnection().prepareStatement(sql);
-            preparedStatement.setString(1, cliente.getNome());
+            preparedStatement.setString(1, cliente.getCpf());
             preparedStatement.execute();
 
             return true;
@@ -99,11 +99,11 @@ public class ClienteDao extends ConnectionFactory {
         try {
             Statement statement = getConnection().createStatement();
             ResultSet resultSet = statement.executeQuery(sql);
-            Cliente cliente = new Cliente();
-            Endereco endereco = new Endereco();
+            
 
             while (resultSet.next()) {
-                cliente.setId(resultSet.getInt("id"));
+            	Cliente cliente = new Cliente();
+                Endereco endereco = new Endereco();
                 cliente.setNome(resultSet.getString("nome"));
                 cliente.setTelefone(resultSet.getString("telefone"));
                 endereco.setPais("endereco_pais");

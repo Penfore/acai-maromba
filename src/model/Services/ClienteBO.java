@@ -1,5 +1,6 @@
 package model.Services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import model.entities.Cliente;
@@ -73,7 +74,7 @@ public class ClienteBO implements BaseInterBO<Cliente> {
 
 	public List<Cliente> listar() {
 		try {
-			List<Cliente> clientes = dao.listar();
+			ArrayList<Cliente> clientes = (ArrayList<Cliente>) dao.listar();
 			return clientes;
 		} catch (Exception e) {
 			e.printStackTrace();

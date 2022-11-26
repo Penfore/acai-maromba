@@ -1,24 +1,18 @@
 package model.entities;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Produto {
 
     private String nome;
     private double preco;
-    private List<Adicional> adicionais;
-    private int id;
+    private int quantidade;
+    private String id;
 
     // Getters
 
-    public int getId() {
-        return this.id;
-    }
+    
 
-    public List<Adicional> getAdicionais() {
-        return adicionais;
-    }
+    
 
     public String getNome() {
         return nome;
@@ -30,13 +24,7 @@ public class Produto {
 
     // Setters
 
-    public void setId(int id) {
-        if (id >= 0) {
-            this.id = id;
-        } else {
-            System.out.println("ID invalido!");
-        }
-    }
+    
 
     public void setNome(String nome) {
         if (nome != null && !nome.isEmpty())
@@ -52,10 +40,7 @@ public class Produto {
             this.preco = 2000.0;
     }
 
-    public void setAdicionais(List<Adicional> adicionais) {
-        if (adicionais != null)
-            this.adicionais = adicionais;
-    }
+    
 
     // Construtor
 
@@ -73,7 +58,7 @@ public class Produto {
     public Produto() {
         this.nome = "";
         this.preco = 0;
-        this.adicionais = new ArrayList<Adicional>();
+        this.quantidade = 0;
     }
 
     // Clear
@@ -86,8 +71,28 @@ public class Produto {
         this.preco = 0.0;
     }
 
-    public void limparAdicional() {
-        this.adicionais = null;
+    public void limparQuantidade() {
+        this.quantidade = 0;
     }
+
+
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 }

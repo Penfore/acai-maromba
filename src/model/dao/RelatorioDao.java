@@ -1,4 +1,4 @@
-package dao;
+package model.dao;
 
 public class RelatorioDao extends ConnectionFactory {
     // TODO: Provavelmente será uma classe que não terá uma camada DAO com buscas

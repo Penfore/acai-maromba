@@ -24,3 +24,12 @@ hs_err_pid*
 
 # VSCode
 .vscode
+
+# Eclipse - ESSE INFERNO DE IDE
+.classpath
+.settings
+.metadata
+.project
+
+# Intellij
+.idea

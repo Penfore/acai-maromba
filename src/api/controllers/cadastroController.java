@@ -11,6 +11,7 @@ public class cadastroController {
 	@FXML private TextField telefone;
 	@FXML private TextField nome;
 	@FXML private TextField cpf;
+	@FXML private TextField id;
 	
 	private FuncionarioBO funcionarioBo = new FuncionarioBO();
 	private Funcionario funcionario = new Funcionario();
@@ -20,6 +21,7 @@ public class cadastroController {
 		funcionario.setNome(nome.getText());
 		funcionario.setTelefone(telefone.getText());
 		funcionario.setCpf(cpf.getText());
+		funcionario.setId(Integer.parseInt(id.getText()));
 		funcionarioBo.adicionar(funcionario);
 		if (funcionarioBo.adicionar(funcionario)) {
 			System.out.println("Funcionario criado com sucesso!");

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="236.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="api.controllers.cadastroController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="api.controllers.cadastroController">
    <children>
       <Label layoutX="131.0" layoutY="23.0" text="Cadastro">
          <font>
@@ -31,15 +31,21 @@
       <TextField fx:id="nome" layoutX="128.0" layoutY="65.0" />
       <TextField fx:id="telefone" layoutX="128.0" layoutY="91.0" />
       <TextField fx:id="cpf" layoutX="128.0" layoutY="119.0" />
-      <Button layoutX="40.0" layoutY="168.0" mnemonicParsing="false" onAction="#voltar" text="Voltar">
+      <Button layoutX="40.0" layoutY="207.0" mnemonicParsing="false" onAction="#voltar" text="Voltar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button layoutX="241.0" layoutY="168.0" mnemonicParsing="false" onAction="#adicionarFuncionario" text="Cadastrar">
+      <Button layoutX="242.0" layoutY="207.0" mnemonicParsing="false" onAction="#adicionarFuncionario" text="Cadastrar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
+      <Label layoutX="59.0" layoutY="149.0" text="ID">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="id" layoutX="128.0" layoutY="145.0" />
    </children>
 </Pane>
